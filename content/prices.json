@@ -1,0 +1,40 @@
+{
+  "subtitle": "Hand-drawn pet portraits, one pet per portrait",
+  "rows": [
+    {
+      "size": "A5",
+      "paper": "148 × 210 mm",
+      "pencil": "",
+      "ink": "",
+      "colour": ""
+    },
+    {
+      "size": "A4",
+      "paper": "210 × 297 mm",
+      "pencil": "",
+      "ink": "",
+      "colour": ""
+    },
+    {
+      "size": "A3",
+      "paper": "297 × 420 mm",
+      "pencil": "",
+      "ink": "",
+      "colour": ""
+    }
+  ],
+  "notes": [
+    {
+      "title": "Deposit",
+      "text": "A 50% non-refundable deposit secures your place on my waiting list."
+    },
+    {
+      "title": "Delivery",
+      "text": "Tracked UK delivery, confirmed when you order. Larger artworks are quoted separately."
+    },
+    {
+      "title": "Final payment",
+      "text": "Due before your portrait is posted. Waiting for payday? Let me know and I'll keep it safe."
+    }
+  ]
+}

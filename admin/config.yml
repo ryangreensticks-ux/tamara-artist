@@ -1,0 +1,233 @@
+# Site editor settings for Tamara Artist
+# --------------------------------------
+# Before the first login, replace YOUR-GITHUB-USERNAME/tamara-artist below
+# with your own GitHub username and the name of your site's repository.
+
+backend:
+  name: github
+  repo: ryangreensticks-ux/tamara-artist
+  branch: main
+  commit_messages:
+    update: "Update {{collection}}"
+    uploadMedia: "Upload {{path}}"
+
+site_url: https://tamaraartist.co.uk
+display_url: https://tamaraartist.co.uk
+logo_url: /images/art/me.jpg
+
+# Where uploaded photos are stored in the site
+media_folder: images/uploads
+public_folder: /images/uploads
+
+# Shrink big phone photos before they are uploaded (Sveltia CMS)
+media_libraries:
+  default:
+    config:
+      max_file_size: 20000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 2000
+          height: 2000
+
+collections:
+
+  # ---------------- ARTWORK ----------------
+  - name: artwork
+    label: Artwork
+    files:
+      - name: pet-portraits
+        label: Pet portraits
+        file: content/pet-portraits.json
+        fields:
+          - name: items
+            label: Portraits
+            label_singular: portrait
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}} · {{fields.medium}}"
+            hint: New portraits appear at the top. Drag to reorder.
+            fields:
+              - { name: image, label: Photo, widget: image, hint: "Upload the clearest photo of the finished portrait." }
+              - { name: title, label: Title, widget: string, hint: "Shown when someone enlarges the image, e.g. Border collie" }
+              - name: medium
+                label: Medium
+                widget: select
+                options:
+                  - { label: Pencil, value: pencil }
+                  - { label: Ink, value: ink }
+                  - { label: Colour pencil, value: colour }
+              - { name: featured, label: "Show in Recent Portraits", widget: boolean, default: false, required: false, hint: "Also show it on the main Pet Portraits page." }
+
+      - name: original-art
+        label: Original art
+        file: content/original-art.json
+        fields:
+          - name: items
+            label: Artworks
+            label_singular: artwork
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}}"
+            hint: New pieces appear at the top. Drag to reorder.
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: title, label: Title, widget: string }
+              - name: categories
+                label: Categories
+                widget: select
+                multiple: true
+                hint: Choose every category it belongs in.
+                options:
+                  - { label: Botanicals, value: botanicals }
+                  - { label: Trees, value: trees }
+                  - { label: Faces, value: faces }
+                  - { label: Anatomy, value: anatomy }
+                  - { label: Animals, value: animals }
+                  - { label: Inks, value: inks }
+                  - { label: Paintings, value: paintings }
+              - name: status
+                label: Availability
+                widget: select
+                required: false
+                default: ""
+                hint: Leave blank to show no label.
+                options:
+                  - { label: "No label", value: "" }
+                  - { label: Available, value: available }
+                  - { label: Sold, value: sold }
+                  - { label: Prints only, value: prints }
+                  - { label: Not for sale, value: not-for-sale }
+
+  # ---------------- PAGES ----------------
+  - name: pages
+    label: Page text
+    files:
+      - name: settings
+        label: Home page and About Me
+        file: content/settings.json
+        fields:
+          - { name: siteTitle, label: Site title, widget: string }
+          - { name: tagline, label: Tagline under the title, widget: string }
+          - name: collage
+            label: Home page images (top row)
+            widget: list
+            min: 3
+            max: 3
+            summary: "{{fields.alt}}"
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: "Short description (for screen readers)", widget: string }
+          - name: petFeature
+            label: Pet portraits section
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: text, label: Text, widget: text }
+              - { name: image1, label: First framed image, widget: image }
+              - { name: image2, label: Second framed image, widget: image }
+          - name: artFeature
+            label: Original art section
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: text, label: Text, widget: text }
+              - { name: image, label: Image, widget: image }
+          - name: about
+            label: About Me
+            widget: object
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: photo, label: Your photo, widget: image }
+              - { name: text, label: Text, widget: text, hint: "Leave an empty line between paragraphs." }
+          - { name: orderText, label: "How to order (Pet Portraits page)", widget: text }
+          - { name: originalArtIntro, label: "Original Art intro line", widget: string }
+          - { name: instagram, label: Instagram link, widget: string, required: false, hint: "Full link, e.g. https://www.instagram.com/yourname" }
+          - { name: facebook, label: Facebook link, widget: string, required: false }
+          - { name: footer, label: Footer text, widget: string }
+
+      - name: mediums
+        label: Pet portrait mediums
+        file: content/mediums.json
+        fields:
+          - name: items
+            label: Mediums
+            widget: list
+            allow_add: false
+            allow_delete: false
+            summary: "{{fields.title}}"
+            fields:
+              - { name: id, label: "Code (don't change)", widget: string, hint: "Used by the site to link pages. Leave as it is." }
+              - { name: title, label: Name, widget: string }
+              - { name: summary, label: "Card text (Pet Portraits page)", widget: text }
+              - { name: intro, label: "Intro (top of its own page)", widget: text }
+              - { name: cover, label: Card image, widget: image }
+              - { name: coverAlt, label: "Card image description", widget: string }
+
+      - name: categories
+        label: Original art categories
+        file: content/categories.json
+        fields:
+          - name: items
+            label: Categories
+            widget: list
+            allow_add: false
+            allow_delete: false
+            summary: "{{fields.title}}"
+            fields:
+              - { name: id, label: "Code (don't change)", widget: string, hint: "Used by the site to link pages. Leave as it is." }
+              - { name: title, label: Name, widget: string }
+              - { name: intro, label: "Intro (top of its page)", widget: text }
+              - { name: cover, label: Card image, widget: image }
+
+      - name: prices
+        label: Price guide
+        file: content/prices.json
+        fields:
+          - { name: subtitle, label: Subtitle, widget: string }
+          - name: rows
+            label: Sizes and prices
+            widget: list
+            summary: "{{fields.size}}"
+            hint: "Write prices as you want them shown, e.g. £85. Leave blank to show “£ to confirm”."
+            fields:
+              - { name: size, label: Size, widget: string }
+              - { name: paper, label: Paper size, widget: string }
+              - { name: pencil, label: Pencil price, widget: string, required: false }
+              - { name: ink, label: Ink price, widget: string, required: false }
+              - { name: colour, label: Colour pencil price, widget: string, required: false }
+          - name: notes
+            label: Notes under the table
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: text, label: Text, widget: text }
+
+      - name: faq
+        label: FAQ
+        file: content/faq.json
+        fields:
+          - name: items
+            label: Questions
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { name: question, label: Question, widget: string }
+              - { name: answer, label: Answer, widget: text, hint: "Leave an empty line between paragraphs. Start lines with “- ” for a bullet list." }
+
+      - name: tips
+        label: Photo tips
+        file: content/tips.json
+        fields:
+          - { name: intro, label: Intro, widget: text }
+          - name: items
+            label: Tips
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: title, label: Heading, widget: string }
+              - { name: text, label: Text, widget: text }
+          - { name: signoffTitle, label: Closing heading, widget: string }
+          - { name: signoffText, label: Closing text, widget: text }

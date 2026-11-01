@@ -1,0 +1,46 @@
+{
+  "items": [
+    {
+      "id": "botanicals",
+      "title": "Botanicals",
+      "intro": "Succulents, aloes and leaves in paint, coloured pencil and ink.",
+      "cover": "images/art/pf-botanicals-8.jpg"
+    },
+    {
+      "id": "trees",
+      "title": "Trees",
+      "intro": "Baobabs and acacias in charcoal, pencil and paint, from full silhouettes to close bark detail.",
+      "cover": "images/art/art-baobab-2.jpg"
+    },
+    {
+      "id": "faces",
+      "title": "Faces",
+      "intro": "Portraits of people in charcoal, pencil and paint.",
+      "cover": "images/art/art-face-orange.jpg"
+    },
+    {
+      "id": "anatomy",
+      "title": "Anatomy",
+      "intro": "Colourful watercolour anatomy studies, alongside detailed pencil studies of feet.",
+      "cover": "images/art/art-torso.jpg"
+    },
+    {
+      "id": "animals",
+      "title": "Animals",
+      "intro": "Wildlife in charcoal and paint: zebras, elephants, leopards and Nguni cattle.",
+      "cover": "images/art/art-zebra-eye.jpg"
+    },
+    {
+      "id": "inks",
+      "title": "Inks",
+      "intro": "Pen and ink animals, many wearing crowns of flowers.",
+      "cover": "images/art/art-ink-buffalo.jpg"
+    },
+    {
+      "id": "paintings",
+      "title": "Paintings",
+      "intro": "Acrylic paintings on canvas, board and slate.",
+      "cover": "images/art/art-bull.jpg"
+    }
+  ]
+}

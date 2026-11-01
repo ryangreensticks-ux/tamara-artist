@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Hand-drawn pet portraits in pencil, ink and colour pencil, plus original art by Tamara.">
+<title>Tamara Artist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Poppins:wght@300;400;500&family=Oswald:wght@600&family=Source+Serif+4:opsz,wght@8..60,400&display=swap">
+<style>
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+/* Layout: matches the Wix build — white pages, centred light-serif titles, pill nav, rounded image tiles, warm "Get in touch" band on every page. Single light theme by design. */
+:root{
+  --white:#ffffff;
+  --ink:#2d2d2d;
+  --soft:#57534d;
+  --line:#dcd9d3;
+  --pill:#f1eee8;      /* nav highlight, warm band */
+  --band-top:#f8f7f3;
+  --f-display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-body:"Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-label:"Source Serif 4", Georgia, serif;
+  --f-logo:"Oswald", "Arial Narrow", sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{background:var(--white); color:var(--ink); font-family:var(--f-body); font-weight:400; font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased}
+.gutter{padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.wrap{max-width:1120px; margin:0 auto}
+h1,h2,h3{font-family:var(--f-display); font-weight:400; margin:0; line-height:1.1; text-wrap:balance; color:var(--ink)}
+p{margin:0}
+img{display:block; max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink); outline-offset:3px}
+
+/* header */
+header{position:sticky; top:env(safe-area-inset-top, 0px); z-index:20; background:var(--white)}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:30; background:var(--white)}
+.bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:18px}
+.logo{font-family:var(--f-logo); font-size:15px; line-height:.95; letter-spacing:.14em; border:2px solid var(--ink); padding:5px 6px 4px; text-decoration:none; display:inline-block}
+nav.main{display:flex; gap:6px}
+nav.main a{font-weight:400; font-size:15px; text-decoration:none; padding:8px 20px; border-radius:999px}
+nav.main a:hover{background:var(--band-top)}
+nav.main a[aria-current="page"]{background:var(--pill)}
+.btn{display:inline-block; font-family:var(--f-body); font-weight:400; font-size:14px; padding:10px 24px; border:1px solid var(--ink); border-radius:999px; background:var(--white); color:var(--ink); text-decoration:none; cursor:pointer}
+.btn:hover{background:var(--ink); color:var(--white)}
+.menu-btn{display:none}
+@media (max-width: 860px){
+  nav.main{display:none; position:absolute; left:0; right:0; top:100%; background:var(--white); flex-direction:column; padding:8px max(16px, env(safe-area-inset-right, 0px)) 18px max(16px, env(safe-area-inset-left, 0px)); border-bottom:1px solid var(--line)}
+  nav.main.open{display:flex}
+  .menu-btn{display:inline-block}
+  .bar .touch{display:none}
+}
+
+/* page title */
+.page-title{text-align:center; padding-block:72px 56px}
+.page-title h1{font-size:clamp(2.3rem, 5.4vw, 3.6rem); letter-spacing:-.01em}
+.page-title p{margin-top:16px; color:var(--soft); font-size:15.5px}
+.home-title h1{font-size:clamp(2.7rem, 8vw, 5rem)}
+
+/* home collage */
+.collage{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:clamp(8px, 1.6vw, 16px); align-items:start; max-width:780px; margin:0 auto 110px}
+.collage img{width:100%; border-radius:clamp(14px, 2.4vw, 26px); object-fit:cover}
+.collage .c1{aspect-ratio:4/3.3; margin-top:clamp(16px, 4vw, 40px)}
+.collage .c2{aspect-ratio:3/4; object-position:50% 30%}
+.collage .c3{aspect-ratio:3/4; object-position:50% 35%; margin-top:clamp(28px, 7vw, 72px)}
+
+.feature{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding-block:40px 80px}
+.feature > *{min-width:0}
+.feature .txt{display:flex; flex-direction:column; gap:16px; align-items:flex-start; max-width:40ch}
+.feature.flip .txt{justify-self:end; align-items:flex-end; text-align:right}
+.feature h2{font-size:clamp(1.9rem, 3.5vw, 2.4rem)}
+.feature p{color:var(--soft); font-size:16px}
+.frames{display:flex; gap:16px; align-items:flex-start}
+.frames img:first-child{width:54%; margin-top:28px}
+.frames img:last-child{width:40%}
+.feature.flip .media img{max-width:420px; margin-left:auto; margin-right:auto}
+.about-img{width:min(220px, 100%); justify-self:center; border-radius:50%}
+.about .txt{max-width:56ch}
+.strip{height:64px; background:center/cover no-repeat; margin-block:24px 0}
+@media (max-width: 760px){
+  .feature{grid-template-columns:1fr; gap:28px}
+  .feature.flip .txt{justify-self:start; align-items:flex-start; text-align:left}
+  .feature.flip .media{order:-1}
+}
+
+/* pet portraits */
+.mediums{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; padding:8px 0 88px}
+.mediums > *{min-width:0}
+.mediums img{border-radius:12px; width:100%; aspect-ratio:4/3; object-fit:cover}
+.mediums h2{font-size:1.9rem; margin-top:6px}
+.mediums p{color:var(--soft); max-width:40ch; margin:0 auto; flex:1}
+@media (max-width: 900px){ .mediums{grid-template-columns:1fr; max-width:560px; margin:0 auto} }
+
+.sizes{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; padding-bottom:88px; align-items:end}
+.size{display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; min-width:0}
+.size .sheet{border:1px solid var(--ink); background:var(--white); display:flex; align-items:center; justify-content:center; font-family:var(--f-display); font-size:1.5rem}
+.size .dims{font-size:13px; color:var(--soft); font-variant-numeric:tabular-nums}
+.size p{font-size:15px; max-width:24ch}
+.sec-head{text-align:center; padding-bottom:40px}
+.sec-head h2{font-size:clamp(1.9rem, 3.5vw, 2.4rem)}
+.sec-head p{color:var(--soft); margin:12px auto 0; max-width:60ch}
+
+.medium-card{min-width:0; text-align:center; display:flex; flex-direction:column; gap:14px; text-decoration:none; color:inherit; background:var(--white); border:1px solid #ebe8e2; border-radius:20px; padding:14px 14px 26px; box-shadow:0 1px 3px rgba(45,40,32,.06), 0 18px 44px -18px rgba(45,40,32,.28); transition:transform .25s ease, box-shadow .25s ease}
+.medium-card:hover{transform:translateY(-4px); box-shadow:0 2px 4px rgba(45,40,32,.07), 0 28px 56px -20px rgba(45,40,32,.34)}
+.medium-card h2, .medium-card p{padding-inline:10px}
+.medium-card .more{align-self:center; margin-top:4px; font-size:14.5px; font-weight:500; padding:10px 22px; border:1px solid var(--ink); border-radius:999px; transition:background .2s, color .2s}
+.medium-card:hover .more{background:var(--ink); color:var(--white)}
+.medium-card:focus-visible{outline:2px solid var(--ink); outline-offset:6px}
+@media (prefers-reduced-motion: reduce){ .medium-card{transition:none} .medium-card:hover{transform:none} }
+@media (prefers-reduced-motion: reduce){ .medium-card img{transition:none} .medium-card:hover img{transform:none} }
+.crumb{font-size:14.5px; color:var(--soft); margin-bottom:14px}
+.crumb a{color:var(--soft)}
+.page-title .lede{max-width:60ch; margin:18px auto 0; font-size:16.5px; color:var(--soft)}
+.medium-cta{text-align:center; padding:8px 0 88px; display:flex; flex-direction:column; align-items:center; gap:14px}
+.medium-cta h2{font-size:clamp(1.7rem, 3.2vw, 2.2rem)}
+.medium-cta p{color:var(--soft); max-width:52ch}
+.cta-row{display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:6px}
+.btn.solid{background:var(--ink); color:var(--white)}
+.btn.solid:hover{background:#000}
+
+/* original art */
+.art-cards{display:flex; flex-wrap:wrap; justify-content:center; gap:24px; padding:8px 0 88px}
+.art-card{width:calc(25% - 18px); min-width:220px; padding:12px 12px 22px; gap:10px}
+.art-card img{border-radius:12px; width:100%; aspect-ratio:4/3; object-fit:cover}
+.art-card h2{font-size:1.6rem; margin-top:4px}
+.art-card p{color:var(--soft); font-size:14.5px}
+@media (max-width: 560px){ .art-card{width:100%; min-width:0} }
+.cats{display:flex; flex-wrap:wrap; justify-content:center; gap:28px 20px; padding-bottom:64px}
+.cat{all:unset; cursor:pointer; width:calc(25% - 15px); min-width:140px; display:flex; flex-direction:column; align-items:center; gap:14px}
+.cat img{width:100%; aspect-ratio:182/94; object-fit:cover; border-radius:16px; transition:opacity .2s}
+.cat span{font-family:var(--f-display); font-size:1.3rem}
+.cat[aria-pressed="true"] span{text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:1px}
+.cat:focus-visible{outline:2px solid var(--ink); outline-offset:4px; border-radius:16px}
+.cats.filtering .cat[aria-pressed="false"] img{opacity:.45}
+@media (max-width: 560px){ .cat{width:calc(50% - 10px); min-width:0} }
+.gallery{columns:4 210px; column-gap:22px; padding-bottom:88px}
+.gallery figure{margin:0 0 22px; break-inside:avoid; background:var(--white); padding:clamp(8px, 1.1vw, 14px); border-radius:2px; box-shadow:0 1px 2px rgba(45,40,32,.10), 0 10px 26px -14px rgba(45,40,32,.35); cursor:zoom-in; transition:transform .25s ease, box-shadow .25s ease}
+.gallery figure:hover{transform:translateY(-3px); box-shadow:0 2px 4px rgba(45,40,32,.10), 0 18px 34px -16px rgba(45,40,32,.40)}
+.gallery figure:focus-visible{outline:2px solid var(--ink); outline-offset:4px}
+.gallery img{width:100%}
+@media (prefers-reduced-motion: reduce){ .gallery figure{transition:none} .gallery figure:hover{transform:none} }
+
+/* lightbox */
+dialog.lb{border:0; padding:0; background:transparent; max-width:100vw; max-height:100vh; width:100%; height:100%; margin:0}
+dialog.lb::backdrop{background:rgba(250,249,246,.96)}
+.lb-inner{height:100%; display:grid; grid-template-rows:auto 1fr auto; padding:calc(14px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) calc(18px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px))}
+.lb-top{display:flex; justify-content:space-between; align-items:center; gap:12px}
+.lb-count{font-size:14px; color:var(--soft); font-variant-numeric:tabular-nums}
+.lb-stage{display:flex; align-items:center; justify-content:center; gap:12px; min-height:0; padding-block:12px}
+.lb-stage figure{margin:0; background:var(--white); padding:clamp(10px, 1.6vw, 20px); box-shadow:0 2px 4px rgba(45,40,32,.10), 0 24px 60px -24px rgba(45,40,32,.45); max-height:100%; min-width:0; display:flex}
+.lb-stage img{max-height:calc(100vh - 230px); max-width:min(1100px, calc(100vw - 150px)); object-fit:contain}
+.lb-nav{flex:none; width:46px; height:46px; border-radius:50%; border:1px solid var(--ink); background:var(--white); color:var(--ink); font-size:20px; cursor:pointer; display:grid; place-items:center}
+.lb-nav:hover{background:var(--ink); color:var(--white)}
+.lb-cap{display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px 24px; text-align:center}
+.lb-cap h3{font-size:1.6rem}
+.lb-cap .lb-medium{font-size:14px; color:var(--soft); margin-top:2px}
+@media (max-width: 640px){
+  .lb-stage{flex-wrap:wrap}
+  .lb-stage figure{order:-1; width:100%; justify-content:center}
+  .lb-stage img{max-width:100%; max-height:calc(100vh - 300px)}
+}
+.show-all{display:block; margin:-40px auto 64px}
+
+.filters{display:flex; justify-content:center; gap:8px; padding-bottom:28px; flex-wrap:wrap}
+.chip{font:inherit; font-size:14.5px; font-weight:400; padding:7px 20px; border-radius:999px; border:0; background:transparent; color:var(--ink); cursor:pointer}
+.chip:hover{background:var(--band-top)}
+.chip[aria-pressed="true"]{background:var(--pill)}
+
+/* faq + tips */
+.acc{max-width:880px; margin:0 auto; display:flex; flex-direction:column; gap:14px; padding-bottom:72px}
+.acc details{background:var(--pill); border-radius:10px}
+.acc summary{list-style:none; cursor:pointer; padding:14px 22px; font-family:var(--f-label); font-size:16px; display:flex; justify-content:space-between; gap:16px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"⌄"; transition:transform .2s}
+.acc details[open] summary::after{transform:rotate(180deg)}
+.acc .body{background:var(--white); padding:16px 22px 10px; font-size:15.5px; display:flex; flex-direction:column; gap:10px}
+.acc ul{margin:0; padding-left:1.2em}
+.tips{max-width:1000px; margin:0 auto; padding-bottom:40px}
+.tip{display:grid; grid-template-columns:1fr 1.15fr; gap:24px; border-top:1px solid var(--line); padding-block:26px}
+.tip:last-child{border-bottom:1px solid var(--line)}
+.tip > *{min-width:0}
+.tip h3{font-size:1.4rem}
+.tip p{color:var(--soft); font-size:15.5px}
+.tip p + p{margin-top:8px}
+@media (max-width: 640px){ .tip{grid-template-columns:1fr; gap:8px} }
+.signoff{text-align:center; padding-block:40px 80px}
+.signoff h2{font-size:clamp(1.9rem, 3.5vw, 2.4rem)}
+.signoff p{color:var(--soft); max-width:62ch; margin:14px auto 0}
+
+/* price guide */
+.price-wrap{max-width:760px; margin:0 auto; padding-bottom:88px; display:flex; flex-direction:column; gap:28px}
+.table-scroll{overflow-x:auto}
+table{width:100%; border-collapse:collapse; font-size:15px; font-variant-numeric:tabular-nums}
+th,td{padding:16px 12px; text-align:left; border-bottom:1px solid var(--line)}
+th{font-family:var(--f-label); font-weight:400; color:var(--soft); font-size:14px}
+td:first-child{font-family:var(--f-display); font-size:1.35rem}
+.tbc{color:var(--soft); font-style:italic}
+.info{display:grid; grid-template-columns:repeat(3, 1fr); gap:20px}
+.info > div{background:var(--band-top); border-radius:12px; padding:20px; min-width:0}
+.info h3{font-size:1.25rem; margin-bottom:6px}
+.info p{font-size:15px; color:var(--soft)}
+@media (max-width: 640px){ .info{grid-template-columns:1fr} }
+
+/* contact band */
+.contact{background:linear-gradient(var(--band-top) 0 34%, var(--pill) 34% 100%); padding-block:64px 88px}
+.card{max-width:1040px; margin:0 auto; background:var(--white); border-radius:14px; padding:24px clamp(20px, 6vw, 88px) 44px}
+.card h2{text-align:center; font-size:clamp(2rem, 4vw, 2.7rem); margin-bottom:20px}
+form{display:flex; flex-direction:column; gap:18px}
+label{font-family:var(--f-label); font-size:15px; display:flex; flex-direction:column; gap:7px}
+input, select, textarea{font:inherit; font-family:var(--f-body); font-weight:400; font-size:15px; padding:11px 14px; border:1px solid #9f9b95; border-radius:4px; background:#fbfbfb; color:var(--ink); width:100%}
+textarea{min-height:96px; resize:vertical}
+.submit{margin-top:6px; font:inherit; font-size:15px; padding:12px; border:0; border-radius:999px; background:#77736e; color:var(--white); cursor:pointer}
+.submit:hover{background:var(--ink)}
+.form-note{font-size:14.5px; text-align:center; color:var(--soft)}
+footer{text-align:center; padding-block:28px; font-size:13px; color:#8a867f}
+
+/* content-driven additions */
+.contents{display:contents}
+.stack{display:flex; flex-direction:column; gap:16px}
+.gallery figure{position:relative}
+.badge{position:absolute; top:clamp(14px, 1.6vw, 20px); right:clamp(14px, 1.6vw, 20px); font-size:12.5px; font-weight:500; padding:4px 12px; border-radius:999px; background:var(--white); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.badge-sold{background:var(--ink); color:var(--white)}
+.load-error{text-align:center; padding:40px 0; color:var(--soft)}
+.tip div p + p{margin-top:8px}
+footer{display:flex; flex-direction:column; align-items:center; gap:10px}
+.social{display:flex; gap:20px; font-size:14.5px}
+.social a{color:var(--ink)}
+</style>
+
+</head>
+<body>
+<header class="gutter">
+  <div class="wrap bar">
+    <a class="logo" href="#home" aria-label="Tamara Artist, home">TAMARA<br>ARTIST</a>
+    <nav class="main" id="nav" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#pet-portraits">Pet Portraits</a>
+      <a href="#original-art">Original Art</a>
+      <a href="#faq">FAQ's</a>
+      <a href="#price-guide">Price Guide</a>
+    </nav>
+    <a class="btn touch" href="#contact" data-scroll>Get In Touch</a>
+    <button class="btn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+</header>
+
+<main class="gutter">
+  <!-- HOME -->
+  <div class="view wrap" data-view="home">
+    <div class="page-title home-title">
+      <h1 id="heroTitle">Tamara Artist</h1>
+      <p id="heroTagline"></p>
+    </div>
+    <div class="collage" id="collage"></div>
+
+    <div class="feature">
+      <div class="media frames" id="petFeatureImgs"></div>
+      <div class="txt">
+        <h2 id="petFeatureTitle"></h2>
+        <p id="petFeatureText"></p>
+        <a class="btn" href="#pet-portraits">See More</a>
+      </div>
+    </div>
+
+    <div class="feature flip">
+      <div class="txt">
+        <h2 id="artFeatureTitle"></h2>
+        <p id="artFeatureText"></p>
+        <a class="btn" href="#original-art">See More</a>
+      </div>
+      <div class="media" id="artFeatureImg"></div>
+    </div>
+
+    <div class="feature about">
+      <div id="aboutPhoto" class="contents"></div>
+      <div class="txt">
+        <h2 id="aboutTitle"></h2>
+        <div id="aboutText" class="stack"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PET PORTRAITS -->
+  <div class="view wrap" data-view="pet-portraits" hidden>
+    <div class="page-title"><h1>Pet Portraits</h1></div>
+    <div class="mediums" id="mediumCards"></div>
+
+    <div class="sec-head">
+      <h2>Recent Portraits</h2>
+    </div>
+    <div class="filters" id="petFilters" role="group" aria-label="Filter portraits"></div>
+    <div class="gallery" id="petGallery" data-kind="pet"></div>
+
+    <div class="sec-head">
+      <h2>Choosing a size</h2>
+      <p>Look at the space where your portrait will live and choose the size that fits it best. Shown to scale.</p>
+    </div>
+    <div class="sizes">
+      <div class="size"><div class="sheet" style="width:74px;height:105px">A5</div><span class="dims">148 × 210 mm</span><p>Head and neck. Best if your photo isn't the sharpest.</p></div>
+      <div class="size"><div class="sheet" style="width:105px;height:148px">A4</div><span class="dims">210 × 297 mm</span><p>Head and neck, a whole body, or two pets.</p></div>
+      <div class="size"><div class="sheet" style="width:148px;height:210px">A3</div><span class="dims">297 × 420 mm</span><p>A whole body, or two pets together.</p></div>
+    </div>
+
+    <div class="sec-head">
+      <h2>How to order</h2>
+      <p id="orderText"></p>
+      <p style="margin-top:22px"><a class="btn" href="#faq">Read the FAQ's first</a></p>
+    </div>
+  </div>
+
+  <!-- ORIGINAL ART -->
+  <div class="view wrap" data-view="original-art" hidden>
+    <div class="page-title"><h1>Original Art</h1><p class="lede" id="artIntro"></p></div>
+    <div class="art-cards" id="artCards"></div>
+    <div class="sec-head"><h2>All Work</h2></div>
+    <div class="gallery" id="gallery" data-kind="art"></div>
+  </div>
+
+  <!-- MEDIUM AND CATEGORY PAGES (built from the content files) -->
+  <div id="dynViews" class="contents"></div>
+
+  <!-- FAQ -->
+  <div class="view wrap" data-view="faq" hidden>
+    <div class="page-title"><h1>Frequently<br>Asked Questions</h1></div>
+    <div class="acc" id="faqList"></div>
+
+    <div class="sec-head"><h2>Tips On Photographing Your Pet</h2><p id="tipsIntro"></p></div>
+    <div class="tips" id="tipsList"></div>
+    <div class="signoff"><h2 id="signoffTitle"></h2><p id="signoffText"></p></div>
+  </div>
+
+  <!-- PRICE GUIDE -->
+  <div class="view wrap" data-view="price-guide" hidden>
+    <div class="page-title"><h1>Price Guide</h1><p id="priceSub"></p></div>
+    <div class="price-wrap">
+      <div class="table-scroll"><table id="priceTable"></table></div>
+      <div class="info" id="priceNotes"></div>
+    </div>
+  </div>
+</main>
+
+<section class="contact gutter" id="contact">
+  <div class="card">
+    <h2>Get in touch</h2>
+    <form id="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label for="botField">Leave this empty<input id="botField" name="bot-field"></label></p>
+      <label for="fn">First name *<input id="fn" name="first-name" placeholder="Enter your first name" required></label>
+      <label for="ln">Last name *<input id="ln" name="last-name" placeholder="Enter your last name" required></label>
+      <label for="em">Email *<input id="em" name="email" type="email" placeholder="Enter your email" required></label>
+      <label for="int">Interested In?
+        <select id="int" name="interested-in">
+          <option value="">Choose one</option>
+          <option>Pencil pet portrait</option>
+          <option>Ink pet portrait</option>
+          <option>Colour pencil pet portrait</option>
+          <option>Original art</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label for="msg">Message<textarea id="msg" name="message" placeholder="Tell me about your pet"></textarea></label>
+      <button class="submit" type="submit">Submit</button>
+      <p class="form-note" id="formNote" role="status" hidden></p>
+    </form>
+  </div>
+</section>
+<dialog class="lb" id="lb" aria-label="Artwork viewer">
+  <div class="lb-inner">
+    <div class="lb-top"><span class="lb-count" id="lbCount"></span><button class="btn" id="lbClose">Close</button></div>
+    <div class="lb-stage">
+      <button class="lb-nav" id="lbPrev" aria-label="Previous artwork">&larr;</button>
+      <figure><img id="lbImg" alt=""></figure>
+      <button class="lb-nav" id="lbNext" aria-label="Next artwork">&rarr;</button>
+    </div>
+    <div class="lb-cap">
+      <div><h3 id="lbTitle"></h3><p class="lb-medium" id="lbMedium"></p></div>
+      <button class="btn" id="lbAsk"></button>
+    </div>
+  </div>
+</dialog>
+<footer class="gutter"><div id="social" class="social"></div><span id="footerText">© 2026 Tamara Artist</span></footer>
+
+<script>
+(async function(){
+  /* ---------- helpers ---------- */
+  const PREVIEW = location.protocol === 'file:' || /claude|anthropic|^localhost$|^127\.|^$/.test(location.hostname);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const clean = p => String(p || '').replace(/^\/+/, '');
+  // On the live site, images are resized on the fly by Netlify; anywhere else the original file is used.
+  const src = (p, w) => PREVIEW ? clean(p) : '/.netlify/images?url=/' + encodeURI(clean(p)) + '&w=' + w;
+  const img = (p, w, alt, cls) => '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="' + esc(src(p, w)) + '" data-full="' + esc(clean(p)) + '" alt="' + esc(alt) + '" loading="lazy">';
+  document.addEventListener('error', e => { const t = e.target; if (t.tagName === 'IMG' && t.dataset.full && t.getAttribute('src') !== t.dataset.full) t.src = t.dataset.full; }, true);
+  const paras = t => String(t || '').split(/\n\s*\n/).filter(b => b.trim()).map(b => {
+    const lines = b.trim().split('\n');
+    if (lines.every(l => /^\s*-\s+/.test(l))) return '<ul>' + lines.map(l => '<li>' + esc(l.replace(/^\s*-\s+/, '')) + '</li>').join('') + '</ul>';
+    return '<p>' + esc(b.trim()).replace(/\n/g, '<br>') + '</p>';
+  }).join('');
+  const $ = id => document.getElementById(id);
+  const setText = (id, t) => { const el = $(id); if (el) el.textContent = t || ''; };
+  const sentence = t => { t = String(t || ''); return t.charAt(0).toUpperCase() + t.slice(1).toLowerCase(); };
+  const STATUS = {available: 'Available', sold: 'Sold', 'prints': 'Prints only', 'not-for-sale': 'Not for sale'};
+
+  /* ---------- load content ---------- */
+  const names = ['settings', 'pet-portraits', 'original-art', 'categories', 'mediums', 'faq', 'tips', 'prices'];
+  let S, PET, ART, CATS, MEDS, FAQ, TIPS, PRICES;
+  try {
+    [S, PET, ART, CATS, MEDS, FAQ, TIPS, PRICES] = await Promise.all(names.map(n => fetch('content/' + n + '.json', {cache: 'no-cache'}).then(r => { if (!r.ok) throw new Error(n); return r.json(); })));
+  } catch (err) {
+    document.querySelector('main').insertAdjacentHTML('afterbegin', '<p class="load-error">The gallery couldn’t load. Refresh the page to try again.</p>');
+    return;
+  }
+  const pets = PET.items || [], arts = ART.items || [], cats = CATS.items || [], meds = MEDS.items || [];
+  const viewIdFor = m => m === 'colour' ? 'colour-pencil' : m;
+  const medById = {}; meds.forEach(m => medById[m.id] = m);
+  const catById = {}; cats.forEach(c => catById[c.id] = c);
+  const medLabel = id => (medById[id] && medById[id].title) || id;
+  const enquiryFor = id => sentence(medLabel(id)) + ' pet portrait';
+
+  const figure = (it, kind) => {
+    const keys = kind === 'pet' ? [it.medium] : (it.categories || []);
+    const alt = kind === 'pet' ? sentence(medLabel(it.medium)) + ' portrait: ' + it.title : it.title;
+    const badge = kind === 'art' && STATUS[it.status] ? '<span class="badge badge-' + esc(it.status) + '">' + STATUS[it.status] + '</span>' : '';
+    return '<figure data-cat="' + esc(keys.join(' ')) + '" data-title="' + esc(it.title) + '" data-status="' + esc(it.status || '') + '" tabindex="0" role="button" aria-label="Enlarge: ' + esc(alt) + '">' + img(it.image, 700, alt) + badge + '</figure>';
+  };
+
+  /* ---------- home ---------- */
+  document.title = S.siteTitle || document.title;
+  setText('heroTitle', S.siteTitle); setText('heroTagline', S.tagline);
+  $('collage').innerHTML = (S.collage || []).slice(0, 3).map((c, i) => img(c.image, 900, c.alt, 'c' + (i + 1))).join('');
+  const pf = S.petFeature || {}, af = S.artFeature || {}, ab = S.about || {};
+  setText('petFeatureTitle', pf.title); setText('petFeatureText', pf.text);
+  $('petFeatureImgs').innerHTML = img(pf.image1, 700, 'Framed pet portrait') + img(pf.image2, 700, 'Framed pet portrait');
+  setText('artFeatureTitle', af.title); setText('artFeatureText', af.text);
+  $('artFeatureImg').innerHTML = img(af.image, 900, 'Original artwork on display');
+  $('aboutPhoto').innerHTML = img(ab.photo, 500, 'Tamara, the artist', 'about-img');
+  setText('aboutTitle', ab.title); $('aboutText').innerHTML = paras(ab.text);
+  setText('orderText', S.orderText); setText('artIntro', S.originalArtIntro); setText('footerText', S.footer);
+  const social = [];
+  if (S.instagram) social.push('<a href="' + esc(S.instagram) + '" target="_blank" rel="noopener">Instagram</a>');
+  if (S.facebook) social.push('<a href="' + esc(S.facebook) + '" target="_blank" rel="noopener">Facebook</a>');
+  $('social').innerHTML = social.join('');
+
+  /* ---------- pet portraits ---------- */
+  $('mediumCards').innerHTML = meds.map(m =>
+    '<a class="medium-card" href="#' + viewIdFor(m.id) + '">' + img(m.cover, 800, m.coverAlt || m.title + ' portrait detail') +
+    '<h2>' + esc(m.title) + '</h2><p>' + esc(m.summary) + '</p><span class="more">View ' + esc(m.title.toLowerCase()) + ' portraits</span></a>').join('');
+  $('petFilters').innerHTML = '<button class="chip" data-f="" aria-pressed="true">All</button>' +
+    meds.map(m => '<button class="chip" data-f="' + esc(m.id) + '" aria-pressed="false">' + esc(m.title) + '</button>').join('');
+  $('petGallery').innerHTML = pets.filter(p => p.featured).map(p => figure(p, 'pet')).join('');
+
+  /* ---------- original art ---------- */
+  $('artCards').innerHTML = cats.map(c => {
+    const n = arts.filter(a => (a.categories || []).includes(c.id)).length;
+    return '<a class="medium-card art-card" href="#art-' + esc(c.id) + '">' + img(c.cover, 700, '') +
+      '<h2>' + esc(c.title) + '</h2><p>' + n + (n === 1 ? ' piece' : ' pieces') + '</p><span class="more">View ' + esc(c.title.toLowerCase()) + '</span></a>';
+  }).join('');
+  $('gallery').innerHTML = arts.map(a => figure(a, 'art')).join('');
+
+  /* ---------- medium + category pages ---------- */
+  let dyn = '';
+  meds.forEach(m => {
+    const items = pets.filter(p => p.medium === m.id);
+    const lower = m.title.toLowerCase(), an = /^[aeiou]/i.test(m.title) ? 'an' : 'a';
+    dyn += '<div class="view wrap" data-view="' + viewIdFor(m.id) + '" data-parent="pet-portraits" hidden>' +
+      '<div class="page-title"><p class="crumb"><a href="#pet-portraits">Pet Portraits</a> <span aria-hidden="true">/</span> ' + esc(m.title) + '</p>' +
+      '<h1>' + esc(m.title) + '</h1><p class="lede">' + esc(m.intro) + '</p></div>' +
+      '<div class="gallery" data-kind="pet">' + items.map(p => figure(p, 'pet')).join('') + '</div>' +
+      '<div class="medium-cta"><h2>Would you like ' + an + ' ' + esc(lower) + ' portrait?</h2>' +
+      '<p>Send me your favourite photos and I’ll help you choose the best one, plus the right size.</p>' +
+      '<div class="cta-row"><a class="btn solid" href="#contact" data-scroll data-medium="' + esc(enquiryFor(m.id)) + '">Commission ' + an + ' ' + esc(lower) + ' portrait</a>' +
+      '<a class="btn" href="#pet-portraits">See all mediums</a></div></div></div>';
+  });
+  cats.forEach(c => {
+    const items = arts.filter(a => (a.categories || []).includes(c.id));
+    dyn += '<div class="view wrap" data-view="art-' + esc(c.id) + '" data-parent="original-art" hidden>' +
+      '<div class="page-title"><p class="crumb"><a href="#original-art">Original Art</a> <span aria-hidden="true">/</span> ' + esc(c.title) + '</p>' +
+      '<h1>' + esc(c.title) + '</h1><p class="lede">' + esc(c.intro) + '</p></div>' +
+      '<div class="gallery" data-kind="art">' + items.map(a => figure(a, 'art')).join('') + '</div>' +
+      '<div class="medium-cta"><h2>See something you love?</h2><p>Ask about availability, or tap any piece and choose “Ask about this piece”.</p>' +
+      '<div class="cta-row"><a class="btn solid" href="#contact" data-scroll data-medium="Original art">Ask about a piece</a>' +
+      '<a class="btn" href="#original-art">See all categories</a></div></div></div>';
+  });
+  $('dynViews').innerHTML = dyn;
+
+  /* ---------- faq, tips ---------- */
+  $('faqList').innerHTML = (FAQ.items || []).map((q, i) =>
+    '<details' + (i === 0 ? ' open' : '') + '><summary>' + esc(q.question) + '</summary><div class="body">' + paras(q.answer) + '</div></details>').join('');
+  setText('tipsIntro', TIPS.intro);
+  $('tipsList').innerHTML = (TIPS.items || []).map(t => '<div class="tip"><h3>' + esc(t.title) + '</h3><div>' + paras(t.text) + '</div></div>').join('');
+  setText('signoffTitle', TIPS.signoffTitle); setText('signoffText', TIPS.signoffText);
+
+  /* ---------- prices ---------- */
+  setText('priceSub', PRICES.subtitle);
+  const cell = v => v ? '<td>' + esc(v) + '</td>' : '<td class="tbc">£ to confirm</td>';
+  $('priceTable').innerHTML = '<thead><tr><th>Size</th><th>Paper</th>' + meds.map(m => '<th>' + esc(m.title) + '</th>').join('') + '</tr></thead><tbody>' +
+    (PRICES.rows || []).map(r => '<tr><td>' + esc(r.size) + '</td><td>' + esc(r.paper) + '</td>' + meds.map(m => cell(r[m.id])).join('') + '</tr>').join('') + '</tbody>';
+  $('priceNotes').innerHTML = (PRICES.notes || []).map(n => '<div><h3>' + esc(n.title) + '</h3><p>' + esc(n.text) + '</p></div>').join('');
+
+  /* ---------- contact options from mediums ---------- */
+  const sel = $('int');
+  const opts = meds.map(m => enquiryFor(m.id)).concat(['Original art', 'Something else']);
+  sel.innerHTML = '<option value="">Choose one</option>' + opts.map(o => '<option>' + esc(o) + '</option>').join('');
+
+  /* ---------- routing ---------- */
+  const views = [...document.querySelectorAll('.view')], links = [...document.querySelectorAll('nav.main a')];
+  const nav = $('nav'), menuBtn = $('menuBtn');
+  function show() {
+    const id = (location.hash || '#home').slice(1);
+    if (id === 'contact') return;
+    const v = views.find(x => x.dataset.view === id) || views[0];
+    views.forEach(x => x.hidden = x !== v);
+    const navId = v.dataset.parent || v.dataset.view;
+    links.forEach(a => { if (a.getAttribute('href') === '#' + navId) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false');
+    window.scrollTo(0, 0);
+  }
+  addEventListener('hashchange', show); show();
+  menuBtn.addEventListener('click', () => { const o = nav.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', o); });
+  document.addEventListener('click', e => {
+    const a = e.target.closest('[data-scroll]'); if (!a) return;
+    e.preventDefault(); if (a.dataset.medium) sel.value = a.dataset.medium;
+    $('contact').scrollIntoView();
+  });
+
+  /* ---------- pet filter ---------- */
+  const pfl = $('petFilters');
+  pfl.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return; const f = b.dataset.f;
+    pfl.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', x === b));
+    $('petGallery').querySelectorAll('figure').forEach(x => x.hidden = !!f && x.dataset.cat !== f);
+  });
+
+  /* ---------- lightbox ---------- */
+  const lb = $('lb'), lbImg = $('lbImg'), lbTitle = $('lbTitle'), lbMed = $('lbMedium'), lbCount = $('lbCount'), lbAsk = $('lbAsk');
+  let list = [], pos = 0, kind = '';
+  function render() {
+    const f = list[pos], im = f.querySelector('img'), keys = f.dataset.cat.split(' ').filter(Boolean);
+    lbImg.src = src(im.dataset.full, 1600); lbImg.dataset.full = im.dataset.full; lbImg.alt = im.alt;
+    lbTitle.textContent = f.dataset.title;
+    let line = kind === 'pet' ? 'Pet portrait · ' + medLabel(keys[0]) : 'Original art · ' + keys.map(k => (catById[k] && catById[k].title) || k).join(', ');
+    if (kind === 'art' && STATUS[f.dataset.status]) line += ' · ' + STATUS[f.dataset.status];
+    lbMed.textContent = line;
+    lbCount.textContent = (pos + 1) + ' of ' + list.length;
+    lbAsk.textContent = kind === 'pet' ? 'Commission a portrait like this' : 'Ask about this piece';
+  }
+  function open(fig) {
+    const g = fig.closest('.gallery'); kind = g.dataset.kind === 'pet' ? 'pet' : 'art';
+    list = [...g.querySelectorAll('figure')].filter(x => !x.hidden); pos = list.indexOf(fig); render();
+    if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
+  }
+  function close() { if (lb.close) lb.close(); else lb.removeAttribute('open'); }
+  function step(d) { pos = (pos + d + list.length) % list.length; render(); }
+  document.addEventListener('click', e => { const f = e.target.closest('.gallery figure'); if (f) open(f); });
+  document.addEventListener('keydown', e => { const f = e.target.closest && e.target.closest('.gallery figure'); if (f && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(f); } });
+  $('lbPrev').addEventListener('click', () => step(-1));
+  $('lbNext').addEventListener('click', () => step(1));
+  $('lbClose').addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-inner') || e.target.classList.contains('lb-stage')) close(); });
+  lb.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1); });
+  let tx = null;
+  lb.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, {passive: true});
+  lb.addEventListener('touchend', e => { if (tx === null) return; const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1); tx = null; });
+  lbAsk.addEventListener('click', () => {
+    const f = list[pos], t = f.dataset.title, keys = f.dataset.cat.split(' ');
+    sel.value = kind === 'pet' ? enquiryFor(keys[0]) : 'Original art';
+    $('msg').value = kind === 'pet' ? 'I love this one: ' + t + '. I’d like a portrait of my pet in the same style.' : 'I’m interested in this piece: ' + t + '. Is it available?';
+    close(); $('contact').scrollIntoView(); $('fn').focus({preventScroll: true});
+  });
+
+  /* ---------- contact form (sent by Netlify on the live site) ---------- */
+  const form = $('form'), note = $('formNote');
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); note.hidden = false;
+    if (!form.checkValidity()) { note.textContent = 'Fill in your first name, last name and a valid email, then submit again.'; return; }
+    if (PREVIEW) { note.textContent = 'This is a preview, so nothing was sent. On the live site this form emails you each enquiry.'; return; }
+    note.textContent = 'Sending…';
+    try {
+      const r = await fetch('/', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString()});
+      if (!r.ok) throw new Error();
+      form.reset(); note.textContent = 'Thank you! Your message has been sent and I’ll be in touch soon.';
+    } catch (err) { note.textContent = 'Your message couldn’t be sent. Check your connection and try again.'; }
+  });
+})();
+</script>
+</body>
+</html>

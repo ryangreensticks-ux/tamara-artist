@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "id": "pencil",
+      "title": "Pencil",
+      "summary": "Traditional graphite, and the medium I'm most comfortable and fastest with. Pencil suits every portrait and every animal. If you're unsure, choose pencil.",
+      "intro": "Traditional graphite, and the medium I'm most comfortable and fastest with. Pencil suits every portrait and every animal, from soft puppy fur to wiry terrier coats.",
+      "cover": "images/art/pencil.jpg",
+      "coverAlt": "Detail of a pencil portrait of a schnauzer"
+    },
+    {
+      "id": "ink",
+      "title": "Ink",
+      "summary": "I paint the ink on with a brush, then add detail with ink pens, for a bolder, more graphic look. It takes a little longer, and occasionally a photo isn't suited to ink. I'll always let you know.",
+      "intro": "I paint the ink on with a brush, then add detail with ink pens. The result is bolder and more graphic, with deep blacks and crisp whiskers.",
+      "cover": "images/art/ink.jpg",
+      "coverAlt": "Detail of an ink portrait of a pug"
+    },
+    {
+      "id": "colour",
+      "title": "Colour Pencil",
+      "summary": "Layer upon layer of coloured pencil, for rich, true-to-life fur, eyes and markings. It works best from a well-lit photo where your pet's real colours are clear.",
+      "intro": "Layer upon layer of coloured pencil, for rich, true-to-life fur, eyes and markings. It works best from a well-lit photo where your pet's real colours are clear.",
+      "cover": "images/art/colour.jpg",
+      "coverAlt": "Detail of a colour pencil portrait of a chocolate spaniel"
+    }
+  ]
+}

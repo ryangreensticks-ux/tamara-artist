@@ -1,0 +1,39 @@
+{
+  "siteTitle": "Tamara Artist",
+  "tagline": "I create custom, hand-drawn art",
+  "collage": [
+    {
+      "image": "images/art/art-zebra-eye.jpg",
+      "alt": "Charcoal drawing of a zebra's eye and stripes"
+    },
+    {
+      "image": "images/art/pet-pencil-spaniel.jpg",
+      "alt": "Pencil portrait of a spaniel puppy"
+    },
+    {
+      "image": "images/art/pet-pencil-tabby.jpg",
+      "alt": "Pencil portrait of a tabby cat"
+    }
+  ],
+  "petFeature": {
+    "title": "Custom Pet Portraits",
+    "text": "Each piece is crafted with love and attention to detail, capturing the unique personality of your furry friends. Browse through my collection of pet portraits.",
+    "image1": "images/art/mock-pug-half.jpg",
+    "image2": "images/art/mock-schnauzer.jpg"
+  },
+  "artFeature": {
+    "title": "Original Art",
+    "text": "Visit my gallery of original art, where every piece is a unique expression of my creativity.",
+    "image": "images/art/mock-canvas-bull.jpg"
+  },
+  "about": {
+    "title": "About Me",
+    "photo": "images/art/me.jpg",
+    "text": "I have a passion for fauna and flora. I love walking around the garden looking at plants, leaves, bugs and flowers, and I struggle to walk past a pet without trying to befriend it.\n\nSometimes I wish I could pull them out from the paper for five minutes to give them a cuddle before sending them home."
+  },
+  "orderText": "Send me your photo (the original file, not a screenshot), your chosen size and medium, your pet's name, your delivery address, and any deadline. Once we've agreed on the photo, a 50% non-refundable deposit secures your place on my waiting list. Your portrait is posted once the final payment clears.",
+  "originalArtIntro": "Drawings and paintings from my own portfolio. Choose a category to see more.",
+  "instagram": "",
+  "facebook": "",
+  "footer": "© 2026 Tamara Artist"
+}
