@@ -605,7 +605,7 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
   let list = [], pos = 0, kind = '';
   function render() {
     const f = list[pos], im = f.querySelector('img'), keys = f.dataset.cat.split(' ').filter(Boolean);
-    lbImg.src = src(im.dataset.full, 1600); lbImg.dataset.full = im.dataset.full; lbImg.alt = im.alt;
+    lbImg.src = im.dataset.full; lbImg.dataset.full = im.dataset.full; lbImg.alt = im.alt;   // full-size original
     lbTitle.textContent = f.dataset.title;
     let line = kind === 'pet' ? 'Pet portrait · ' + medLabel(keys[0]) : 'Original art · ' + keys.map(k => (catById[k] && catById[k].title) || k).join(', ');
     if (kind === 'art' && STATUS[f.dataset.status]) line += ' · ' + STATUS[f.dataset.status];
