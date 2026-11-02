@@ -372,9 +372,8 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
 <section class="contact gutter" id="contact">
   <div class="card">
     <h2>Get in touch</h2>
-    <form id="form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-      <input type="hidden" name="form-name" value="contact">
-      <p hidden><label for="botField">Leave this empty<input id="botField" name="bot-field"></label></p>
+    <form id="form" name="contact" method="POST" novalidate>
+      <p hidden><label for="botField">Leave this empty<input id="botField" name="botcheck" type="checkbox" tabindex="-1" autocomplete="off"></label></p>
       <label for="fn">First name *<input id="fn" name="first-name" placeholder="Enter your first name" required></label>
       <label for="ln">Last name *<input id="ln" name="last-name" placeholder="Enter your last name" required></label>
       <label for="em">Email *<input id="em" name="email" type="email" placeholder="Enter your email" required></label>
@@ -416,9 +415,17 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
   const PREVIEW = location.protocol === 'file:' || /claude|anthropic|^localhost$|^127\.|^$/.test(location.hostname);
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const clean = p => String(p || '').replace(/^\/+/, '');
-  // On the live site, images are resized on the fly by Netlify; anywhere else the original file is used.
-  const src = (p, w) => PREVIEW ? clean(p) : '/.netlify/images?url=/' + encodeURI(clean(p)) + '&w=' + w;
-  const img = (p, w, alt, cls) => '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="' + esc(src(p, w)) + '" data-full="' + esc(clean(p)) + '" alt="' + esc(alt) + '" loading="lazy">';
+  // Photos: smaller copies are used on the live site (see below); anywhere else the original file is used.
+  /* Smaller copies of every photo (600 and 1200 px wide) are made automatically each time the site
+     publishes, in _thumbs/. If a copy is missing (e.g. in the editor's preview), the original is used. */
+  const thumb = (p, size) => '_thumbs/' + size + '/' + encodeURI(clean(p).replace(/\.[a-z0-9]+$/i, '')) + '.webp';
+  const resizable = p => /\.(jpe?g|png|webp)$/i.test(clean(p));
+  const img = (p, w, alt, cls) => {
+    const full = encodeURI(clean(p)), useThumbs = !PREVIEW && resizable(p);
+    const srcset = useThumbs ? ' srcset="' + esc(thumb(p, 600)) + ' 600w, ' + esc(thumb(p, 1200)) + ' 1200w" sizes="(max-width: 600px) 92vw, ' + w + 'px"' : '';
+    return '<img' + (cls ? ' class="' + cls + '"' : '') + ' src="' + esc(useThumbs ? thumb(p, 1200) : full) + '"' + srcset +
+      ' data-full="' + esc(full) + '" alt="' + esc(alt) + '" loading="lazy" onerror="this.onerror=null;this.removeAttribute(\'srcset\');this.src=this.dataset.full">';
+  };
   document.addEventListener('error', e => { const t = e.target; if (t.tagName === 'IMG' && t.dataset.full && t.getAttribute('src') !== t.dataset.full) t.src = t.dataset.full; }, true);
   const paras = t => String(t || '').split(/\n\s*\n/).filter(b => b.trim()).map(b => {
     const lines = b.trim().split('\n');
@@ -630,7 +637,8 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
     close(); $('contact').scrollIntoView(); $('fn').focus({preventScroll: true});
   });
 
-  /* ---------- contact form (sent by Netlify on the live site) ---------- */
+  /* ---------- contact form (sent by Web3Forms, which emails each enquiry) ---------- */
+  const FORM_KEY = 'b7cbea10-7d1a-4935-9bb3-2f7a5c0e13b4';   // from web3forms.com; safe to be public
   const form = $('form'), note = $('formNote');
   form.addEventListener('submit', async e => {
     e.preventDefault(); note.hidden = false;
@@ -638,8 +646,14 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
     if (PREVIEW) { note.textContent = 'This is a preview, so nothing was sent. On the live site this form emails you each enquiry.'; return; }
     note.textContent = 'Sending…';
     try {
-      const r = await fetch('/', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams(new FormData(form)).toString()});
-      if (!r.ok) throw new Error();
+      const data = Object.fromEntries(new FormData(form));
+      data.access_key = FORM_KEY;
+      data.subject = 'New enquiry from ' + (data['first-name'] || '') + ' ' + (data['last-name'] || '') + ' (Tamara Artist website)';
+      data.from_name = 'Tamara Artist website';
+      data.botcheck = form.querySelector('[name=botcheck]').checked;
+      const r = await fetch('https://api.web3forms.com/submit', {method: 'POST', headers: {'Content-Type': 'application/json', Accept: 'application/json'}, body: JSON.stringify(data)});
+      const res = await r.json().catch(() => ({}));
+      if (!r.ok || !res.success) throw new Error();
       form.reset(); note.textContent = 'Thank you! Your message has been sent and I’ll be in touch soon.';
     } catch (err) { note.textContent = 'Your message couldn’t be sent. Check your connection and try again.'; }
   });

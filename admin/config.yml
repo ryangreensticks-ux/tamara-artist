@@ -7,13 +7,15 @@ backend:
   name: github
   repo: ryangreensticks-ux/tamara-artist
   branch: main
+  # GitHub Pages has no login server, so the editor signs in with a GitHub access token
+  auth_methods: [token]
   commit_messages:
     update: "Update {{collection}}"
     uploadMedia: "Upload {{path}}"
 
-site_url: https://tamaraartist.co.uk
-display_url: https://tamaraartist.co.uk
-logo_url: /images/uploads/site-images/me.jpg
+site_url: https://ryangreensticks-ux.github.io/tamara-artist/
+display_url: https://ryangreensticks-ux.github.io/tamara-artist/
+logo_url: ../images/uploads/site-images/me.jpg
 
 # Where uploaded photos are stored in the site
 media_folder: images/uploads
