@@ -432,13 +432,16 @@ collections:
           - { name: tagline, label: Tagline under the title, widget: string }
           - name: collage
             label: Home page images (top row)
+            label_singular: image
             widget: list
             min: 3
-            max: 3
+            thumbnail: image
             summary: "{{fields.alt}}"
+            hint: "Three show at a time and slowly fade between the others in this list. Add as many as you like; the first three show first. Drag to reorder."
             fields:
               - { name: image, label: Image, widget: image }
               - { name: alt, label: "Short description (for screen readers)", widget: string }
+          - { name: collageSeconds, label: "Seconds between image changes", widget: number, value_type: int, min: 3, max: 30, default: 5, required: false, hint: "How often one of the three home page images changes." }
           - name: petFeature
             label: Pet portraits section
             widget: object

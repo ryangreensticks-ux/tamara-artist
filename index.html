@@ -72,10 +72,15 @@ nav.main a[aria-current="page"]{background:var(--pill)}
 
 /* home collage */
 .collage{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:clamp(8px, 1.6vw, 16px); align-items:start; max-width:780px; margin:0 auto 110px}
-.collage img{width:100%; border-radius:clamp(14px, 2.4vw, 26px); object-fit:cover}
+.collage .slot{position:relative; overflow:hidden; border-radius:clamp(14px, 2.4vw, 26px); background:var(--band-top)}
+.collage .slot img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:opacity 1.8s ease}
+.collage .slot img.out{opacity:0}
 .collage .c1{aspect-ratio:4/3.3; margin-top:clamp(16px, 4vw, 40px)}
-.collage .c2{aspect-ratio:3/4; object-position:50% 30%}
-.collage .c3{aspect-ratio:3/4; object-position:50% 35%; margin-top:clamp(28px, 7vw, 72px)}
+.collage .c2{aspect-ratio:3/4}
+.collage .c2 img{object-position:50% 30%}
+.collage .c3{aspect-ratio:3/4; margin-top:clamp(28px, 7vw, 72px)}
+.collage .c3 img{object-position:50% 35%}
+@media (prefers-reduced-motion: reduce){ .collage .slot img{transition:none} }
 /* home hero: full-width cream band behind the title that stops partway down the three images */
 main{overflow-x:clip}
 .home-title{position:relative; z-index:1}
@@ -104,10 +109,17 @@ main{overflow-x:clip}
 /* pet portraits */
 .mediums{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; padding:8px 0 88px}
 .mediums > *{min-width:0}
-.mediums img{border-radius:12px; width:100%; aspect-ratio:4/3; object-fit:cover}
+.mediums img{border-radius:12px; width:100%; aspect-ratio:4/5; object-fit:cover; object-position:50% 35%; background:var(--band-top)}
 .mediums h2{font-size:1.9rem; margin-top:6px}
 .mediums p{color:var(--soft); max-width:40ch; margin:0 auto; flex:1}
-@media (max-width: 900px){ .mediums{grid-template-columns:1fr; max-width:560px; margin:0 auto} }
+/* phones and tablets: swipe sideways through the medium cards (the next card peeks in) instead of one very long column */
+@media (max-width: 900px){
+  .mediums{grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:min(78%, 340px); gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; margin-inline:calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding:8px max(16px, env(safe-area-inset-left, 0px)) 40px; scroll-padding-inline:max(16px, env(safe-area-inset-left, 0px)); scrollbar-width:none}
+  .mediums::-webkit-scrollbar{display:none}
+  .mediums > *{scroll-snap-align:start}
+  .mediums img{aspect-ratio:1/1; object-position:50% 20%}
+  .medium-card p{font-size:14.5px}
+}
 
 .sizes{display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; padding-bottom:88px; align-items:end}
 .size{display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; min-width:0}
@@ -453,7 +465,29 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
   /* ---------- home ---------- */
   document.title = S.siteTitle || document.title;
   setText('heroTitle', S.siteTitle); setText('heroTagline', S.tagline);
-  $('collage').innerHTML = (S.collage || []).slice(0, 3).map((c, i) => img(c.image, 900, c.alt, 'c' + (i + 1))).join('');
+  /* home images: three show at a time; one at a time slowly fades to the next picture in the list */
+  const pool = (S.collage || []).filter(c => c && c.image);
+  $('collage').innerHTML = pool.slice(0, 3).map((c, i) => '<div class="slot c' + (i + 1) + '">' + img(c.image, 900, c.alt) + '</div>').join('');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (pool.length > 3 && !reduceMotion) {
+    const slots = [...$('collage').children], showing = [0, 1, 2];
+    let next = 3, turn = 0;
+    const secs = Math.min(30, Math.max(3, Number(S.collageSeconds) || 5));
+    setInterval(() => {
+      if (document.hidden || location.hash.replace('#', '') && location.hash !== '#home') return;
+      let pick = next, tries = 0;
+      while (showing.includes(pick) && tries++ < pool.length) pick = (pick + 1) % pool.length;
+      if (showing.includes(pick)) return;
+      const k = turn % 3, slot = slots[k], c = pool[pick];
+      turn = (turn + 1) % 3; next = (pick + 1) % pool.length; showing[k] = pick;
+      const tmp = document.createElement('div'); tmp.innerHTML = img(c.image, 900, c.alt).replace(' loading="lazy"', '');
+      const nu = tmp.firstChild, old = slot.querySelector('img:last-child');
+      nu.className = 'out';
+      const swap = () => { slot.append(nu); requestAnimationFrame(() => requestAnimationFrame(() => {
+        nu.classList.remove('out'); setTimeout(() => { slot.querySelectorAll('img').forEach(x => { if (x !== nu) x.remove(); }); }, 2000); })); };
+      if (nu.complete && nu.naturalWidth) swap(); else { nu.onload = swap; nu.onerror = () => { showing[k] = -1; }; }
+    }, secs * 1000);
+  }
   const pf = S.petFeature || {}, af = S.artFeature || {}, ab = S.about || {};
   setText('petFeatureTitle', pf.title); setText('petFeatureText', pf.text);
   $('petFeatureImgs').innerHTML = img(pf.image1, 700, 'Framed pet portrait') + img(pf.image2, 700, 'Framed pet portrait');

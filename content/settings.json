@@ -13,6 +13,26 @@
     {
       "image": "/images/uploads/pet-portraits/pencil/pet-pencil-tabby.jpg",
       "alt": "Pencil portrait of a tabby cat"
+    },
+    {
+      "image": "/images/uploads/pet-portraits/ink/pet-ink-boston.jpg",
+      "alt": "Ink portrait of a Boston terrier"
+    },
+    {
+      "image": "/images/uploads/original-art/faces/art-face-orange.jpg",
+      "alt": "Charcoal portrait of a woman in an orange headwrap"
+    },
+    {
+      "image": "/images/uploads/pet-portraits/colour-pencil/pet-colour-siamese.jpg",
+      "alt": "Colour pencil portrait of a Siamese cat on a branch"
+    },
+    {
+      "image": "/images/uploads/pet-portraits/pencil/pet-pencil-golden.jpg",
+      "alt": "Pencil portrait of an old golden dog resting"
+    },
+    {
+      "image": "/images/uploads/original-art/animals/art-elephant.jpg",
+      "alt": "Charcoal elephant on black"
     }
   ],
   "petFeature": {
@@ -35,5 +55,6 @@
   "originalArtIntro": "Drawings and paintings from my own portfolio. Choose a category to see more.",
   "instagram": "https://www.instagram.com/tamaraiscreating",
   "facebook": "https://www.facebook.com/tamaraiscreating",
-  "footer": "© 2026 Tamara Artist"
+  "footer": "© 2026 Tamara Artist",
+  "collageSeconds": 5
 }
