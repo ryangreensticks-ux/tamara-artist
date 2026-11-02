@@ -33,33 +33,65 @@ media_libraries:
 
 collections:
 
-  # ---------------- ARTWORK ----------------
-  - name: artwork
-    label: Artwork
+  # ---------------- PET PORTRAITS ----------------
+  # One page per medium. The site reads content/pet-<medium>.json.
+  - name: pet-portraits
+    label: Pet portraits
+    icon: pets
     files:
-      - name: pet-portraits
-        label: Pet portraits
-        file: content/pet-portraits.json
+      - name: pet-pencil
+        label: Pencil portraits
+        file: content/pet-pencil.json
         fields:
           - name: items
-            label: Portraits
+            label: Pencil portraits
             label_singular: portrait
             widget: list
             add_to_top: true
-            summary: "{{fields.title}} · {{fields.medium}}"
-            hint: New portraits appear at the top. Drag to reorder.
+            summary: "{{fields.title}}{{fields.featured | ternary(' · ★ Recent', '')}}"
+            hint: "New portraits appear at the top of the Pencil page. Drag to reorder."
             fields:
               - { name: image, label: Photo, widget: image, hint: "Upload the clearest photo of the finished portrait." }
               - { name: title, label: Title, widget: string, hint: "Shown when someone enlarges the image, e.g. Border collie" }
-              - name: medium
-                label: Medium
-                widget: select
-                options:
-                  - { label: Pencil, value: pencil }
-                  - { label: Ink, value: ink }
-                  - { label: Colour pencil, value: colour }
               - { name: featured, label: "Show in Recent Portraits", widget: boolean, default: false, required: false, hint: "Also show it on the main Pet Portraits page." }
 
+      - name: pet-ink
+        label: Ink portraits
+        file: content/pet-ink.json
+        fields:
+          - name: items
+            label: Ink portraits
+            label_singular: portrait
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}}{{fields.featured | ternary(' · ★ Recent', '')}}"
+            hint: "New portraits appear at the top of the Ink page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image, hint: "Upload the clearest photo of the finished portrait." }
+              - { name: title, label: Title, widget: string, hint: "Shown when someone enlarges the image, e.g. Border collie" }
+              - { name: featured, label: "Show in Recent Portraits", widget: boolean, default: false, required: false, hint: "Also show it on the main Pet Portraits page." }
+
+      - name: pet-colour
+        label: Colour pencil portraits
+        file: content/pet-colour.json
+        fields:
+          - name: items
+            label: Colour pencil portraits
+            label_singular: portrait
+            widget: list
+            add_to_top: true
+            summary: "{{fields.title}}{{fields.featured | ternary(' · ★ Recent', '')}}"
+            hint: "New portraits appear at the top of the Colour pencil page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image, hint: "Upload the clearest photo of the finished portrait." }
+              - { name: title, label: Title, widget: string, hint: "Shown when someone enlarges the image, e.g. Border collie" }
+              - { name: featured, label: "Show in Recent Portraits", widget: boolean, default: false, required: false, hint: "Also show it on the main Pet Portraits page." }
+
+  # ---------------- ORIGINAL ART ----------------
+  - name: artwork
+    label: Original art
+    icon: palette
+    files:
       - name: original-art
         label: Original art
         file: content/original-art.json
@@ -103,6 +135,7 @@ collections:
   # ---------------- PAGES ----------------
   - name: pages
     label: Page text
+    icon: article
     files:
       - name: settings
         label: Home page and About Me

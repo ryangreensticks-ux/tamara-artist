@@ -409,15 +409,19 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
   const STATUS = {available: 'Available', sold: 'Sold', 'prints': 'Prints only', 'not-for-sale': 'Not for sale'};
 
   /* ---------- load content ---------- */
-  const names = ['settings', 'pet-portraits', 'original-art', 'categories', 'mediums', 'faq', 'tips', 'prices'];
-  let S, PET, ART, CATS, MEDS, FAQ, TIPS, PRICES;
+  const names = ['settings', 'original-art', 'categories', 'mediums', 'faq', 'tips', 'prices'];
+  const getJSON = n => fetch('content/' + n + '.json', {cache: 'no-cache'}).then(r => { if (!r.ok) throw new Error(n); return r.json(); });
+  let S, ART, CATS, MEDS, FAQ, TIPS, PRICES, pets = [];
   try {
-    [S, PET, ART, CATS, MEDS, FAQ, TIPS, PRICES] = await Promise.all(names.map(n => fetch('content/' + n + '.json', {cache: 'no-cache'}).then(r => { if (!r.ok) throw new Error(n); return r.json(); })));
+    [S, ART, CATS, MEDS, FAQ, TIPS, PRICES] = await Promise.all(names.map(getJSON));
+    /* each medium's portraits live in their own file, e.g. content/pet-pencil.json */
+    const lists = await Promise.all((MEDS.items || []).map(m => getJSON('pet-' + m.id).then(d => (d.items || []).map(p => Object.assign({}, p, {medium: m.id})))));
+    pets = lists.flat();
   } catch (err) {
     document.querySelector('main').insertAdjacentHTML('afterbegin', '<p class="load-error">The gallery couldn’t load. Refresh the page to try again.</p>');
     return;
   }
-  const pets = PET.items || [], arts = ART.items || [], cats = CATS.items || [], meds = MEDS.items || [];
+  const arts = ART.items || [], cats = CATS.items || [], meds = MEDS.items || [];
   const viewIdFor = m => m === 'colour' ? 'colour-pencil' : m;
   const medById = {}; meds.forEach(m => medById[m.id] = m);
   const catById = {}; cats.forEach(c => catById[c.id] = c);

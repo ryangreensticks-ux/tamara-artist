@@ -1,0 +1,99 @@
+{
+  "items": [
+    {
+      "image": "images/art/pet-ink-boston.jpg",
+      "title": "Boston terrier",
+      "featured": true
+    },
+    {
+      "image": "images/art/m-ink-dog-5.jpg",
+      "title": "Border collie resting",
+      "featured": false
+    },
+    {
+      "image": "images/art/pet-ink-black-cat.jpg",
+      "title": "Black cat",
+      "featured": true
+    },
+    {
+      "image": "images/art/m-ink-dog-10.jpg",
+      "title": "Pug",
+      "featured": false
+    },
+    {
+      "image": "images/art/m-ink-dog-2.jpg",
+      "title": "Wire-haired terrier",
+      "featured": false
+    },
+    {
+      "image": "images/art/pet-ink-terrier.jpg",
+      "title": "Smiling terrier",
+      "featured": true
+    },
+    {
+      "image": "images/art/m-ink-dog-14.jpg",
+      "title": "Papillon",
+      "featured": false
+    },
+    {
+      "image": "images/art/m-ink-dog-3.jpg",
+      "title": "Rhodesian ridgeback",
+      "featured": false
+    },
+    {
+      "image": "images/art/pet-ink-grey-cat.jpg",
+      "title": "Grey cat",
+      "featured": true
+    },
+    {
+      "image": "images/art/m-ink-dog-29.jpg",
+      "title": "German shepherd",
+      "featured": false
+    },
+    {
+      "image": "images/art/m-ink-dog-6.jpg",
+      "title": "Yorkshire terrier",
+      "featured": false
+    },
+    {
+      "image": "images/art/pet-ink-sharpei.jpg",
+      "title": "Shar Pei",
+      "featured": true
+    },
+    {
+      "image": "images/art/m-ink-dog-38.jpg",
+      "title": "Boston terrier close-up",
+      "featured": false
+    },
+    {
+      "image": "images/art/pet-ink-ginger-cat.jpg",
+      "title": "Cat looking up",
+      "featured": true
+    },
+    {
+      "image": "images/art/m-ink-dog-8.jpg",
+      "title": "Boxer",
+      "featured": false
+    },
+    {
+      "image": "images/art/m-ink-dog-11.jpg",
+      "title": "Dog with big ears",
+      "featured": false
+    },
+    {
+      "image": "images/art/pet-ink-cat.jpg",
+      "title": "Tabby cat",
+      "featured": true
+    },
+    {
+      "image": "images/art/m-ink-dog-32.jpg",
+      "title": "Dog close-up",
+      "featured": false
+    },
+    {
+      "image": "images/art/m-ink-dog-18.jpg",
+      "title": "French bulldog resting",
+      "featured": false
+    }
+  ]
+}
