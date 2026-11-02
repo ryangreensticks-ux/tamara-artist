@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "image": "images/art/art-bull.jpg",
+      "title": "Painted Nguni bull",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-zebras-colour.jpg",
+      "title": "Painting of two colourful zebras",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-face-paint.jpg",
+      "title": "Painted portrait with face paint",
+      "also": [
+        "faces"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-horse.jpg",
+      "title": "Painted chestnut horse",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-elephant-slate.jpg",
+      "title": "Elephant painted on slate",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-buddha-fern.jpg",
+      "title": "Painted face with fern leaves",
+      "also": [
+        "faces"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-rhino-slate.jpg",
+      "title": "Rhino painted on slate",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-zebra-colour.jpg",
+      "title": "Painting of a colourful zebra",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-giraffe-slate.jpg",
+      "title": "Giraffe painted on slate",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-face-oval.jpg",
+      "title": "Painted portrait on an oval board",
+      "also": [
+        "faces"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-nguni-white.jpg",
+      "title": "Painted white Nguni bull",
+      "also": [
+        "animals"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-buddha.jpg",
+      "title": "Painted face in gold tones",
+      "also": [
+        "faces"
+      ],
+      "status": ""
+    }
+  ]
+}

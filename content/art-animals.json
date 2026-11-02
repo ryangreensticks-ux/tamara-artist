@@ -1,0 +1,124 @@
+{
+  "items": [
+    {
+      "image": "images/art/art-zebra-eye.jpg",
+      "title": "Charcoal study of a zebra eye",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-elephant.jpg",
+      "title": "Charcoal elephant on black",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-nguni-2.jpg",
+      "title": "Charcoal speckled Nguni bull",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-nguni-1.jpg",
+      "title": "Charcoal Nguni bull",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/art-nguni-3.jpg",
+      "title": "Charcoal Nguni bull, side view",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-animals-15.jpg",
+      "title": "Painted leopard",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-animals-30.jpg",
+      "title": "Charcoal elephant",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-animals-6.jpg",
+      "title": "Painted zebra close-up",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-animals-47.jpg",
+      "title": "Charcoal Nguni bull",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-animals-43.jpg",
+      "title": "Framed zebra drawing",
+      "also": [],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-paintings-17.jpg",
+      "title": "Painted Highland cow",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-paintings-42.jpg",
+      "title": "Painted elephant on grey",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-paintings-29.jpg",
+      "title": "Rainbow zebra painting",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-paintings-24.jpg",
+      "title": "Watercolour zebra",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-paintings-4.jpg",
+      "title": "Zebra painted on slate",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-paintings-21.jpg",
+      "title": "Painted elephant tusk detail",
+      "also": [
+        "paintings"
+      ],
+      "status": ""
+    },
+    {
+      "image": "images/art/pf-paintings-55.jpg",
+      "title": "Ink leopard with a watercolour wash",
+      "also": [
+        "inks"
+      ],
+      "status": ""
+    }
+  ]
+}

@@ -409,19 +409,24 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
   const STATUS = {available: 'Available', sold: 'Sold', 'prints': 'Prints only', 'not-for-sale': 'Not for sale'};
 
   /* ---------- load content ---------- */
-  const names = ['settings', 'original-art', 'categories', 'mediums', 'faq', 'tips', 'prices'];
+  const names = ['settings', 'categories', 'mediums', 'faq', 'tips', 'prices'];
   const getJSON = n => fetch('content/' + n + '.json', {cache: 'no-cache'}).then(r => { if (!r.ok) throw new Error(n); return r.json(); });
-  let S, ART, CATS, MEDS, FAQ, TIPS, PRICES, pets = [];
+  let S, CATS, MEDS, FAQ, TIPS, PRICES, pets = [], artLists = [];
   try {
-    [S, ART, CATS, MEDS, FAQ, TIPS, PRICES] = await Promise.all(names.map(getJSON));
+    [S, CATS, MEDS, FAQ, TIPS, PRICES] = await Promise.all(names.map(getJSON));
     /* each medium's portraits live in their own file, e.g. content/pet-pencil.json */
     const lists = await Promise.all((MEDS.items || []).map(m => getJSON('pet-' + m.id).then(d => (d.items || []).map(p => Object.assign({}, p, {medium: m.id})))));
     pets = lists.flat();
+    /* each original art category has its own file, e.g. content/art-trees.json; a piece can also appear in other categories via "also" */
+    artLists = await Promise.all((CATS.items || []).map(c => getJSON('art-' + c.id).then(d => (d.items || []).map(a => Object.assign({}, a, {categories: [c.id].concat((a.also || []).filter(x => x !== c.id))})))));
   } catch (err) {
     document.querySelector('main').insertAdjacentHTML('afterbegin', '<p class="load-error">The gallery couldn’t load. Refresh the page to try again.</p>');
     return;
   }
-  const arts = ART.items || [], cats = CATS.items || [], meds = MEDS.items || [];
+  /* All Work: take pieces from each category in turn, so the newest of every category sit near the top */
+  const arts = [];
+  for (let i = 0, more = true; more; i++) { more = false; artLists.forEach(l => { if (l[i]) { arts.push(l[i]); more = true; } }); }
+  const cats = CATS.items || [], meds = MEDS.items || [];
   const viewIdFor = m => m === 'colour' ? 'colour-pencil' : m;
   const medById = {}; meds.forEach(m => medById[m.id] = m);
   const catById = {}; cats.forEach(c => catById[c.id] = c);
@@ -483,7 +488,9 @@ footer{display:flex; flex-direction:column; align-items:center; gap:10px}
       '<a class="btn" href="#pet-portraits">See all mediums</a></div></div></div>';
   });
   cats.forEach(c => {
-    const items = arts.filter(a => (a.categories || []).includes(c.id));
+    /* this category's own pieces first (in the order set in the editor), then pieces from other categories that are also shown here */
+    const own = artLists[cats.indexOf(c)] || [];
+    const items = own.concat(arts.filter(a => a.categories[0] !== c.id && a.categories.includes(c.id)));
     dyn += '<div class="view wrap" data-view="art-' + esc(c.id) + '" data-parent="original-art" hidden>' +
       '<div class="page-title"><p class="crumb"><a href="#original-art">Original Art</a> <span aria-hidden="true">/</span> ' + esc(c.title) + '</p>' +
       '<h1>' + esc(c.title) + '</h1><p class="lede">' + esc(c.intro) + '</p></div>' +

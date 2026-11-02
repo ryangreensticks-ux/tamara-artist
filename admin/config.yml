@@ -48,6 +48,7 @@ collections:
             label_singular: portrait
             widget: list
             add_to_top: true
+            thumbnail: image
             summary: "{{fields.title}}{{fields.featured | ternary(' · ★ Recent', '')}}"
             hint: "New portraits appear at the top of the Pencil page. Drag to reorder."
             fields:
@@ -64,6 +65,7 @@ collections:
             label_singular: portrait
             widget: list
             add_to_top: true
+            thumbnail: image
             summary: "{{fields.title}}{{fields.featured | ternary(' · ★ Recent', '')}}"
             hint: "New portraits appear at the top of the Ink page. Drag to reorder."
             fields:
@@ -80,6 +82,7 @@ collections:
             label_singular: portrait
             widget: list
             add_to_top: true
+            thumbnail: image
             summary: "{{fields.title}}{{fields.featured | ternary(' · ★ Recent', '')}}"
             hint: "New portraits appear at the top of the Colour pencil page. Drag to reorder."
             fields:
@@ -88,29 +91,33 @@ collections:
               - { name: featured, label: "Show in Recent Portraits", widget: boolean, default: false, required: false, hint: "Also show it on the main Pet Portraits page." }
 
   # ---------------- ORIGINAL ART ----------------
-  - name: artwork
+  # One page per category. The site reads content/art-<category>.json.
+  - name: original-art
     label: Original art
     icon: palette
     files:
-      - name: original-art
-        label: Original art
-        file: content/original-art.json
+      - name: art-botanicals
+        label: Botanicals
+        file: content/art-botanicals.json
         fields:
           - name: items
-            label: Artworks
+            label: Botanicals
             label_singular: artwork
             widget: list
             add_to_top: true
-            summary: "{{fields.title}}"
-            hint: New pieces appear at the top. Drag to reorder.
+            thumbnail: image
+            summary: "{{fields.title}}{{fields.status | ternary(' · ', '')}}{{fields.status}}"
+            hint: "New pieces appear at the top of the Botanicals page. Drag to reorder."
             fields:
               - { name: image, label: Photo, widget: image }
               - { name: title, label: Title, widget: string }
-              - name: categories
-                label: Categories
+              - name: also
+                label: Also show in
                 widget: select
                 multiple: true
-                hint: Choose every category it belongs in.
+                required: false
+                default: []
+                hint: "Optional. Tick any other categories this piece should also appear in."
                 options:
                   - { label: Botanicals, value: botanicals }
                   - { label: Trees, value: trees }
@@ -124,7 +131,265 @@ collections:
                 widget: select
                 required: false
                 default: ""
-                hint: Leave blank to show no label.
+                hint: Leave on No label to show nothing.
+                options:
+                  - { label: "No label", value: "" }
+                  - { label: Available, value: available }
+                  - { label: Sold, value: sold }
+                  - { label: Prints only, value: prints }
+                  - { label: Not for sale, value: not-for-sale }
+
+      - name: art-trees
+        label: Trees
+        file: content/art-trees.json
+        fields:
+          - name: items
+            label: Trees
+            label_singular: artwork
+            widget: list
+            add_to_top: true
+            thumbnail: image
+            summary: "{{fields.title}}{{fields.status | ternary(' · ', '')}}{{fields.status}}"
+            hint: "New pieces appear at the top of the Trees page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: title, label: Title, widget: string }
+              - name: also
+                label: Also show in
+                widget: select
+                multiple: true
+                required: false
+                default: []
+                hint: "Optional. Tick any other categories this piece should also appear in."
+                options:
+                  - { label: Botanicals, value: botanicals }
+                  - { label: Trees, value: trees }
+                  - { label: Faces, value: faces }
+                  - { label: Anatomy, value: anatomy }
+                  - { label: Animals, value: animals }
+                  - { label: Inks, value: inks }
+                  - { label: Paintings, value: paintings }
+              - name: status
+                label: Availability
+                widget: select
+                required: false
+                default: ""
+                hint: Leave on No label to show nothing.
+                options:
+                  - { label: "No label", value: "" }
+                  - { label: Available, value: available }
+                  - { label: Sold, value: sold }
+                  - { label: Prints only, value: prints }
+                  - { label: Not for sale, value: not-for-sale }
+
+      - name: art-faces
+        label: Faces
+        file: content/art-faces.json
+        fields:
+          - name: items
+            label: Faces
+            label_singular: artwork
+            widget: list
+            add_to_top: true
+            thumbnail: image
+            summary: "{{fields.title}}{{fields.status | ternary(' · ', '')}}{{fields.status}}"
+            hint: "New pieces appear at the top of the Faces page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: title, label: Title, widget: string }
+              - name: also
+                label: Also show in
+                widget: select
+                multiple: true
+                required: false
+                default: []
+                hint: "Optional. Tick any other categories this piece should also appear in."
+                options:
+                  - { label: Botanicals, value: botanicals }
+                  - { label: Trees, value: trees }
+                  - { label: Faces, value: faces }
+                  - { label: Anatomy, value: anatomy }
+                  - { label: Animals, value: animals }
+                  - { label: Inks, value: inks }
+                  - { label: Paintings, value: paintings }
+              - name: status
+                label: Availability
+                widget: select
+                required: false
+                default: ""
+                hint: Leave on No label to show nothing.
+                options:
+                  - { label: "No label", value: "" }
+                  - { label: Available, value: available }
+                  - { label: Sold, value: sold }
+                  - { label: Prints only, value: prints }
+                  - { label: Not for sale, value: not-for-sale }
+
+      - name: art-anatomy
+        label: Anatomy
+        file: content/art-anatomy.json
+        fields:
+          - name: items
+            label: Anatomy
+            label_singular: artwork
+            widget: list
+            add_to_top: true
+            thumbnail: image
+            summary: "{{fields.title}}{{fields.status | ternary(' · ', '')}}{{fields.status}}"
+            hint: "New pieces appear at the top of the Anatomy page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: title, label: Title, widget: string }
+              - name: also
+                label: Also show in
+                widget: select
+                multiple: true
+                required: false
+                default: []
+                hint: "Optional. Tick any other categories this piece should also appear in."
+                options:
+                  - { label: Botanicals, value: botanicals }
+                  - { label: Trees, value: trees }
+                  - { label: Faces, value: faces }
+                  - { label: Anatomy, value: anatomy }
+                  - { label: Animals, value: animals }
+                  - { label: Inks, value: inks }
+                  - { label: Paintings, value: paintings }
+              - name: status
+                label: Availability
+                widget: select
+                required: false
+                default: ""
+                hint: Leave on No label to show nothing.
+                options:
+                  - { label: "No label", value: "" }
+                  - { label: Available, value: available }
+                  - { label: Sold, value: sold }
+                  - { label: Prints only, value: prints }
+                  - { label: Not for sale, value: not-for-sale }
+
+      - name: art-animals
+        label: Animals
+        file: content/art-animals.json
+        fields:
+          - name: items
+            label: Animals
+            label_singular: artwork
+            widget: list
+            add_to_top: true
+            thumbnail: image
+            summary: "{{fields.title}}{{fields.status | ternary(' · ', '')}}{{fields.status}}"
+            hint: "New pieces appear at the top of the Animals page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: title, label: Title, widget: string }
+              - name: also
+                label: Also show in
+                widget: select
+                multiple: true
+                required: false
+                default: []
+                hint: "Optional. Tick any other categories this piece should also appear in."
+                options:
+                  - { label: Botanicals, value: botanicals }
+                  - { label: Trees, value: trees }
+                  - { label: Faces, value: faces }
+                  - { label: Anatomy, value: anatomy }
+                  - { label: Animals, value: animals }
+                  - { label: Inks, value: inks }
+                  - { label: Paintings, value: paintings }
+              - name: status
+                label: Availability
+                widget: select
+                required: false
+                default: ""
+                hint: Leave on No label to show nothing.
+                options:
+                  - { label: "No label", value: "" }
+                  - { label: Available, value: available }
+                  - { label: Sold, value: sold }
+                  - { label: Prints only, value: prints }
+                  - { label: Not for sale, value: not-for-sale }
+
+      - name: art-inks
+        label: Inks
+        file: content/art-inks.json
+        fields:
+          - name: items
+            label: Inks
+            label_singular: artwork
+            widget: list
+            add_to_top: true
+            thumbnail: image
+            summary: "{{fields.title}}{{fields.status | ternary(' · ', '')}}{{fields.status}}"
+            hint: "New pieces appear at the top of the Inks page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: title, label: Title, widget: string }
+              - name: also
+                label: Also show in
+                widget: select
+                multiple: true
+                required: false
+                default: []
+                hint: "Optional. Tick any other categories this piece should also appear in."
+                options:
+                  - { label: Botanicals, value: botanicals }
+                  - { label: Trees, value: trees }
+                  - { label: Faces, value: faces }
+                  - { label: Anatomy, value: anatomy }
+                  - { label: Animals, value: animals }
+                  - { label: Inks, value: inks }
+                  - { label: Paintings, value: paintings }
+              - name: status
+                label: Availability
+                widget: select
+                required: false
+                default: ""
+                hint: Leave on No label to show nothing.
+                options:
+                  - { label: "No label", value: "" }
+                  - { label: Available, value: available }
+                  - { label: Sold, value: sold }
+                  - { label: Prints only, value: prints }
+                  - { label: Not for sale, value: not-for-sale }
+
+      - name: art-paintings
+        label: Paintings
+        file: content/art-paintings.json
+        fields:
+          - name: items
+            label: Paintings
+            label_singular: artwork
+            widget: list
+            add_to_top: true
+            thumbnail: image
+            summary: "{{fields.title}}{{fields.status | ternary(' · ', '')}}{{fields.status}}"
+            hint: "New pieces appear at the top of the Paintings page. Drag to reorder."
+            fields:
+              - { name: image, label: Photo, widget: image }
+              - { name: title, label: Title, widget: string }
+              - name: also
+                label: Also show in
+                widget: select
+                multiple: true
+                required: false
+                default: []
+                hint: "Optional. Tick any other categories this piece should also appear in."
+                options:
+                  - { label: Botanicals, value: botanicals }
+                  - { label: Trees, value: trees }
+                  - { label: Faces, value: faces }
+                  - { label: Anatomy, value: anatomy }
+                  - { label: Animals, value: animals }
+                  - { label: Inks, value: inks }
+                  - { label: Paintings, value: paintings }
+              - name: status
+                label: Availability
+                widget: select
+                required: false
+                default: ""
+                hint: Leave on No label to show nothing.
                 options:
                   - { label: "No label", value: "" }
                   - { label: Available, value: available }
