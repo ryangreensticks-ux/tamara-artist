@@ -43,6 +43,11 @@ a{color:inherit}
 /* header */
 header{position:sticky; top:env(safe-area-inset-top, 0px); z-index:20; background:var(--white)}
 body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top, 0px); z-index:30; background:var(--white)}
+/* frosted glass: slightly see-through, blurring whatever scrolls underneath (solid white on browsers without blur support) */
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  header, body::before{background:rgba(255,255,255,.72); -webkit-backdrop-filter:blur(16px) saturate(160%); backdrop-filter:blur(16px) saturate(160%)}
+  header{box-shadow:0 1px 0 rgba(45,40,32,.06)}
+}
 .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-block:18px}
 .logo{font-family:var(--f-logo); font-size:15px; line-height:.95; letter-spacing:.14em; border:2px solid var(--ink); padding:5px 6px 4px; text-decoration:none; display:inline-block}
 nav.main{display:flex; gap:6px}
@@ -54,7 +59,7 @@ nav.main a[aria-current="page"]{background:var(--pill)}
 .menu-btn{display:none}
 @media (max-width: 860px){
   nav.main{display:none; position:absolute; left:0; right:0; top:100%; background:var(--white); flex-direction:column; padding:8px max(16px, env(safe-area-inset-right, 0px)) 18px max(16px, env(safe-area-inset-left, 0px)); border-bottom:1px solid var(--line)}
-  nav.main.open{display:flex}
+  nav.main.open{display:flex; background:rgba(255,255,255,.96)}
   .menu-btn{display:inline-block}
   .bar .touch{display:none}
 }
@@ -71,6 +76,11 @@ nav.main a[aria-current="page"]{background:var(--pill)}
 .collage .c1{aspect-ratio:4/3.3; margin-top:clamp(16px, 4vw, 40px)}
 .collage .c2{aspect-ratio:3/4; object-position:50% 30%}
 .collage .c3{aspect-ratio:3/4; object-position:50% 35%; margin-top:clamp(28px, 7vw, 72px)}
+/* home hero: full-width cream band behind the title that stops partway down the three images */
+main{overflow-x:clip}
+.home-title{position:relative; z-index:1}
+.collage{position:relative; isolation:isolate}
+.collage::before{content:""; position:absolute; z-index:-1; top:-100vh; bottom:42%; left:50%; width:100vw; transform:translateX(-50%); background:var(--pill)}
 
 .feature{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; padding-block:40px 80px}
 .feature > *{min-width:0}
@@ -210,7 +220,7 @@ td:first-child{font-family:var(--f-display); font-size:1.35rem}
 @media (max-width: 640px){ .info{grid-template-columns:1fr} }
 
 /* contact band */
-.contact{background:linear-gradient(var(--band-top) 0 34%, var(--pill) 34% 100%); padding-block:64px 88px}
+.contact{background:var(--pill); padding-block:64px 88px}
 .card{max-width:1040px; margin:0 auto; background:var(--white); border-radius:14px; padding:24px clamp(20px, 6vw, 88px) 44px}
 .card h2{text-align:center; font-size:clamp(2rem, 4vw, 2.7rem); margin-bottom:20px}
 form{display:flex; flex-direction:column; gap:18px}
