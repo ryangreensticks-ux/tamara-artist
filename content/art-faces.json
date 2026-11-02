@@ -1,6 +1,12 @@
 {
   "items": [
     {
+      "image": "/images/uploads/original-art/faces/IMG_E6942.webp",
+      "title": "Charcoal portrait of a woman in headwrap",
+      "also": [],
+      "status": ""
+    },
+    {
       "image": "/images/uploads/original-art/faces/art-face-orange.jpg",
       "title": "Charcoal portrait of a woman in an orange headwrap",
       "also": [],
@@ -25,32 +31,14 @@
       "status": ""
     },
     {
-      "image": "/images/uploads/original-art/faces/pf-faces-36.jpg",
-      "title": "Girl with a flower crown",
-      "also": [],
-      "status": ""
-    },
-    {
       "image": "/images/uploads/original-art/faces/pf-faces-0.jpg",
       "title": "Portrait in a patterned headwrap",
       "also": [],
       "status": ""
     },
     {
-      "image": "/images/uploads/original-art/faces/pf-faces-34.jpg",
-      "title": "Laughing baby",
-      "also": [],
-      "status": ""
-    },
-    {
       "image": "/images/uploads/original-art/faces/pf-faces-16.jpg",
       "title": "Portrait with a protea headdress",
-      "also": [],
-      "status": ""
-    },
-    {
-      "image": "/images/uploads/original-art/faces/pf-faces-27.jpg",
-      "title": "Couple portrait",
       "also": [],
       "status": ""
     },
@@ -75,26 +63,8 @@
       "status": ""
     },
     {
-      "image": "/images/uploads/original-art/faces/pf-faces-30.jpg",
-      "title": "Child portrait in sepia",
-      "also": [],
-      "status": ""
-    },
-    {
       "image": "/images/uploads/original-art/faces/pf-faces-7.jpg",
       "title": "Portrait with hoop earrings",
-      "also": [],
-      "status": ""
-    },
-    {
-      "image": "/images/uploads/original-art/faces/pf-faces-33.jpg",
-      "title": "Man in a hoodie",
-      "also": [],
-      "status": ""
-    },
-    {
-      "image": "/images/uploads/original-art/faces/pf-faces-41.jpg",
-      "title": "Portrait of a man",
       "also": [],
       "status": ""
     },
