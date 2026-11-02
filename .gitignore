@@ -1,0 +1,4 @@
+# Mac and editor clutter
+.DS_Store
+._*
+Thumbs.db

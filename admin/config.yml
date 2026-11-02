@@ -1,7 +1,7 @@
 # Site editor settings for Tamara Artist
 # --------------------------------------
-# Before the first login, replace YOUR-GITHUB-USERNAME/tamara-artist below
-# with your own GitHub username and the name of your site's repository.
+# The site is hosted on GitHub Pages and published automatically after every save
+# (see .github/workflows/pages.yml). Sign in to the editor with a GitHub access token.
 
 backend:
   name: github
