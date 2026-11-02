@@ -13,7 +13,7 @@ backend:
 
 site_url: https://tamaraartist.co.uk
 display_url: https://tamaraartist.co.uk
-logo_url: /images/art/me.jpg
+logo_url: /images/uploads/site-images/me.jpg
 
 # Where uploaded photos are stored in the site
 media_folder: images/uploads
@@ -42,6 +42,8 @@ collections:
       - name: pet-pencil
         label: Pencil portraits
         file: content/pet-pencil.json
+        media_folder: /images/uploads/pet-portraits/pencil
+        public_folder: /images/uploads/pet-portraits/pencil
         fields:
           - name: items
             label: Pencil portraits
@@ -59,6 +61,8 @@ collections:
       - name: pet-ink
         label: Ink portraits
         file: content/pet-ink.json
+        media_folder: /images/uploads/pet-portraits/ink
+        public_folder: /images/uploads/pet-portraits/ink
         fields:
           - name: items
             label: Ink portraits
@@ -76,6 +80,8 @@ collections:
       - name: pet-colour
         label: Colour pencil portraits
         file: content/pet-colour.json
+        media_folder: /images/uploads/pet-portraits/colour-pencil
+        public_folder: /images/uploads/pet-portraits/colour-pencil
         fields:
           - name: items
             label: Colour pencil portraits
@@ -99,6 +105,8 @@ collections:
       - name: art-botanicals
         label: Botanicals
         file: content/art-botanicals.json
+        media_folder: /images/uploads/original-art/botanicals
+        public_folder: /images/uploads/original-art/botanicals
         fields:
           - name: items
             label: Botanicals
@@ -142,6 +150,8 @@ collections:
       - name: art-trees
         label: Trees
         file: content/art-trees.json
+        media_folder: /images/uploads/original-art/trees
+        public_folder: /images/uploads/original-art/trees
         fields:
           - name: items
             label: Trees
@@ -185,6 +195,8 @@ collections:
       - name: art-faces
         label: Faces
         file: content/art-faces.json
+        media_folder: /images/uploads/original-art/faces
+        public_folder: /images/uploads/original-art/faces
         fields:
           - name: items
             label: Faces
@@ -228,6 +240,8 @@ collections:
       - name: art-anatomy
         label: Anatomy
         file: content/art-anatomy.json
+        media_folder: /images/uploads/original-art/anatomy
+        public_folder: /images/uploads/original-art/anatomy
         fields:
           - name: items
             label: Anatomy
@@ -271,6 +285,8 @@ collections:
       - name: art-animals
         label: Animals
         file: content/art-animals.json
+        media_folder: /images/uploads/original-art/animals
+        public_folder: /images/uploads/original-art/animals
         fields:
           - name: items
             label: Animals
@@ -314,6 +330,8 @@ collections:
       - name: art-inks
         label: Inks
         file: content/art-inks.json
+        media_folder: /images/uploads/original-art/inks
+        public_folder: /images/uploads/original-art/inks
         fields:
           - name: items
             label: Inks
@@ -357,6 +375,8 @@ collections:
       - name: art-paintings
         label: Paintings
         file: content/art-paintings.json
+        media_folder: /images/uploads/original-art/paintings
+        public_folder: /images/uploads/original-art/paintings
         fields:
           - name: items
             label: Paintings
@@ -401,6 +421,8 @@ collections:
   - name: pages
     label: Page text
     icon: article
+    media_folder: /images/uploads/site-images
+    public_folder: /images/uploads/site-images
     files:
       - name: settings
         label: Home page and About Me

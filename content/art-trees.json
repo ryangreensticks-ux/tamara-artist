@@ -1,37 +1,37 @@
 {
   "items": [
     {
-      "image": "images/art/art-baobab-2.jpg",
+      "image": "/images/uploads/original-art/trees/art-baobab-2.jpg",
       "title": "Baobab tree in charcoal and colour",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/art-acacia.jpg",
+      "image": "/images/uploads/original-art/trees/art-acacia.jpg",
       "title": "Charcoal acacia tree",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/art-baobab.jpg",
+      "image": "/images/uploads/original-art/trees/art-baobab.jpg",
       "title": "Baobab tree in charcoal",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/art-tree.jpg",
+      "image": "/images/uploads/original-art/trees/art-tree.jpg",
       "title": "Charcoal tree",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-trees-23.jpg",
+      "image": "/images/uploads/original-art/trees/pf-trees-23.jpg",
       "title": "Charcoal acacia tree on paper",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-paintings-1.jpg",
+      "image": "/images/uploads/original-art/trees/pf-paintings-1.jpg",
       "title": "Painted baobab tree",
       "also": [
         "paintings"
@@ -39,19 +39,19 @@
       "status": ""
     },
     {
-      "image": "images/art/pf-trees-34.jpg",
+      "image": "/images/uploads/original-art/trees/pf-trees-34.jpg",
       "title": "Baobab trunk detail",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-trees-24.jpg",
+      "image": "/images/uploads/original-art/trees/pf-trees-24.jpg",
       "title": "Acacia tree, close-up",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-trees-33.jpg",
+      "image": "/images/uploads/original-art/trees/pf-trees-33.jpg",
       "title": "Framed baobab drawing",
       "also": [],
       "status": ""

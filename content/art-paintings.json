@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "image": "images/art/art-bull.jpg",
+      "image": "/images/uploads/original-art/paintings/art-bull.jpg",
       "title": "Painted Nguni bull",
       "also": [
         "animals"
@@ -9,7 +9,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-zebras-colour.jpg",
+      "image": "/images/uploads/original-art/paintings/art-zebras-colour.jpg",
       "title": "Painting of two colourful zebras",
       "also": [
         "animals"
@@ -17,7 +17,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-face-paint.jpg",
+      "image": "/images/uploads/original-art/paintings/art-face-paint.jpg",
       "title": "Painted portrait with face paint",
       "also": [
         "faces"
@@ -25,7 +25,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-horse.jpg",
+      "image": "/images/uploads/original-art/paintings/art-horse.jpg",
       "title": "Painted chestnut horse",
       "also": [
         "animals"
@@ -33,7 +33,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-elephant-slate.jpg",
+      "image": "/images/uploads/original-art/paintings/art-elephant-slate.jpg",
       "title": "Elephant painted on slate",
       "also": [
         "animals"
@@ -41,7 +41,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-buddha-fern.jpg",
+      "image": "/images/uploads/original-art/paintings/art-buddha-fern.jpg",
       "title": "Painted face with fern leaves",
       "also": [
         "faces"
@@ -49,7 +49,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-rhino-slate.jpg",
+      "image": "/images/uploads/original-art/paintings/art-rhino-slate.jpg",
       "title": "Rhino painted on slate",
       "also": [
         "animals"
@@ -57,7 +57,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-zebra-colour.jpg",
+      "image": "/images/uploads/original-art/paintings/art-zebra-colour.jpg",
       "title": "Painting of a colourful zebra",
       "also": [
         "animals"
@@ -65,7 +65,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-giraffe-slate.jpg",
+      "image": "/images/uploads/original-art/paintings/art-giraffe-slate.jpg",
       "title": "Giraffe painted on slate",
       "also": [
         "animals"
@@ -73,7 +73,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-face-oval.jpg",
+      "image": "/images/uploads/original-art/paintings/art-face-oval.jpg",
       "title": "Painted portrait on an oval board",
       "also": [
         "faces"
@@ -81,7 +81,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-nguni-white.jpg",
+      "image": "/images/uploads/original-art/paintings/art-nguni-white.jpg",
       "title": "Painted white Nguni bull",
       "also": [
         "animals"
@@ -89,7 +89,7 @@
       "status": ""
     },
     {
-      "image": "images/art/art-buddha.jpg",
+      "image": "/images/uploads/original-art/paintings/art-buddha.jpg",
       "title": "Painted face in gold tones",
       "also": [
         "faces"

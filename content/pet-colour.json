@@ -1,27 +1,27 @@
 {
   "items": [
     {
-      "image": "images/art/pet-colour-spaniel.jpg",
+      "image": "/images/uploads/pet-portraits/colour-pencil/pet-colour-spaniel.jpg",
       "title": "Chocolate spaniel",
       "featured": true
     },
     {
-      "image": "images/art/pet-colour-siamese.jpg",
+      "image": "/images/uploads/pet-portraits/colour-pencil/pet-colour-siamese.jpg",
       "title": "Siamese cat on a branch",
       "featured": true
     },
     {
-      "image": "images/art/m-colour-cat-39.jpg",
+      "image": "/images/uploads/pet-portraits/colour-pencil/m-colour-cat-39.jpg",
       "title": "Tabby cat peeking from a box",
       "featured": false
     },
     {
-      "image": "images/art/pet-colour-siamese-close.jpg",
+      "image": "/images/uploads/pet-portraits/colour-pencil/pet-colour-siamese-close.jpg",
       "title": "Siamese cat close-up",
       "featured": false
     },
     {
-      "image": "images/art/pet-colour-cats-pair.jpg",
+      "image": "/images/uploads/pet-portraits/colour-pencil/pet-colour-cats-pair.jpg",
       "title": "Two cat portraits side by side",
       "featured": true
     }

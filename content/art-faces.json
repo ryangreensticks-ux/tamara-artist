@@ -1,73 +1,73 @@
 {
   "items": [
     {
-      "image": "images/art/art-face-orange.jpg",
+      "image": "/images/uploads/original-art/faces/art-face-orange.jpg",
       "title": "Charcoal portrait of a woman in an orange headwrap",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/art-face-red.jpg",
+      "image": "/images/uploads/original-art/faces/art-face-red.jpg",
       "title": "Portrait of a woman with protea headwrap",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/art-face-gold.jpg",
+      "image": "/images/uploads/original-art/faces/art-face-gold.jpg",
       "title": "Portrait of a woman in a gold patterned headwrap",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/art-face-profile.jpg",
+      "image": "/images/uploads/original-art/faces/art-face-profile.jpg",
       "title": "Charcoal profile of a woman",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-36.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-36.jpg",
       "title": "Girl with a flower crown",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-0.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-0.jpg",
       "title": "Portrait in a patterned headwrap",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-34.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-34.jpg",
       "title": "Laughing baby",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-16.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-16.jpg",
       "title": "Portrait with a protea headdress",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-27.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-27.jpg",
       "title": "Couple portrait",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-2.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-2.jpg",
       "title": "Portrait in a turquoise headwrap",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-40.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-40.jpg",
       "title": "Toddler reaching up",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-21.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-21.jpg",
       "title": "Portrait in a green headwrap",
       "also": [
         "paintings"
@@ -75,31 +75,31 @@
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-30.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-30.jpg",
       "title": "Child portrait in sepia",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-7.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-7.jpg",
       "title": "Portrait with hoop earrings",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-33.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-33.jpg",
       "title": "Man in a hoodie",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-faces-41.jpg",
+      "image": "/images/uploads/original-art/faces/pf-faces-41.jpg",
       "title": "Portrait of a man",
       "also": [],
       "status": ""
     },
     {
-      "image": "images/art/pf-paintings-11.jpg",
+      "image": "/images/uploads/original-art/faces/pf-paintings-11.jpg",
       "title": "Painted portrait in red tones",
       "also": [
         "paintings"
@@ -107,7 +107,7 @@
       "status": ""
     },
     {
-      "image": "images/art/pf-paintings-20.jpg",
+      "image": "/images/uploads/original-art/faces/pf-paintings-20.jpg",
       "title": "Painted portrait close-up",
       "also": [
         "paintings"
